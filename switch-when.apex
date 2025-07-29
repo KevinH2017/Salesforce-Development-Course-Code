@@ -2,8 +2,8 @@
 
 Integer hour = 12;
 
+// Checks if multiple values match and executes blocks of code
 switch on hour {
-    // Checks if multiple values match and executes blocks of code
     when 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 {
         System.debug('Good Morning!');
     }
