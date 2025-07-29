@@ -27,12 +27,10 @@ class2025.remove(3);
 System.debug(class2025);
 
 // Get all keys
-Set<Integer> rollNumbers = class2025.keySet();
-System.debug(rollNumbers);
+System.debug(class2025.keySet());
 
 // Get all values
-List<String> students = class2025.values();
-System.debug(students);
+System.debug(class2025.values());
 
 // Checks if the map has the key
 System.debug(class2025.containsKey(1));
