@@ -1,4 +1,4 @@
-// Sets hold multiple unordered values of the same data type, but no duplicates, data type must be declared with the variable like a list
+// Sets hold multiple unordered values of the same data type, but no duplicates, data type must be declared with the variable
 
 Set<Integer> rollNumbers = new Set<Integer> {123, 456, 789};
 System.debug(rollNumbers);
