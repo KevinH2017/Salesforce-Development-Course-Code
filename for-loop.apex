@@ -1,8 +1,7 @@
-// While loops check the condition before executing the loop code block, will only execute if the condition is met
+// for loops have the variable initialized, check condition, and increment inside the parantheses
 
-Integer year = 1100;
-
-while (year <= 2000) {
+Integer year;
+for (year = 1100; year <= 2000; year++) {
     // Loop block to execute code
     if (Math.mod(year, 4) == 0              // Checks if evenly divisible by 4
         && Math.mod(year, 100) != 0         // Checks if evenly divisible by 100
@@ -11,6 +10,5 @@ while (year <= 2000) {
         } else {
             System.debug('Is ' + year + ' a leap year?: false');
         }
-    year++;
 }
 System.debug('Year after do-while loop: ' + year);
