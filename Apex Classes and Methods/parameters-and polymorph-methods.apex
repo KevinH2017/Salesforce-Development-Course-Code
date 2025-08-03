@@ -38,7 +38,8 @@ public class ParametersTest {
         }
         return dayString;
     }
-
+    
+    // Polymorphic method that takes String dayAbbreviation and returns the day number
     public String getDay(String dayAbbreviation) {
         String dayString = '';
 
