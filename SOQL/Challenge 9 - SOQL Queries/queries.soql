@@ -1,0 +1,29 @@
+// Challenge 9 - SOQL Queries
+
+// Step 1 (Search for Name, Title, Phone, Email):
+SELECT Name, Title, Phone, Email FROM Contact
+
+// Step 2 (Added WHERE clause):
+SELECT Name, Title, Phone, Email FROM Contact
+WHERE Title = 'VP, Technology'
+
+// Step 3 (Added Department field):      
+SELECT Name, Department, Title, Phone, Email FROM Contact
+WHERE Title = 'VP, Technology'
+
+// Step 4 (Added Department filter, 'Finance'):
+SELECT Name, Department, Title, Phone, Email FROM Contact
+WHERE Title = 'VP, Technology' AND Department = 'Finance'
+
+// Step 5 (Added Title filter, '%VP%':
+SELECT Name, Department, Title, Phone, Email FROM Contact
+WHERE Title LIKE '%VP%' AND Department = 'Finance'
+
+// Step 6 (Added DESC order / descending order):
+SELECT Name, Department, Title, Phone, Email FROM Contact
+WHERE Title LIKE '%VP%' AND Department = 'Finance' ORDER BY Name DESC
+
+// Step 7 (Added LIMIT 3):
+SELECT Name, Department, Title, Phone, Email FROM Contact
+WHERE Title LIKE '%VP%' AND Department = 'Finance' ORDER BY Name DESC
+LIMIT 3
