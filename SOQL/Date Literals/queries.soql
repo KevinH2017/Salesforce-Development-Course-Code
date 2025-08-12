@@ -1,0 +1,33 @@
+// Date Format - YYYY-MM-DD
+2025-01-01      // January 1, 2025
+
+// DateTime Formats:        (Offsets are for time zones)
+// YYYY-MM-DDThh:mm:ss+hh:mm
+2025-01-01T12:00:00+02:00       // January 1, 2025, at 12:00 PM with a +2 hour offset
+
+// YYYY-MM-DDThh:mm:ss-hh:mm
+2025-01-01T12:00:00-02:00       // January 1, 2025, at 12:00 PM with a -2 hour offset
+
+// YYYY-MM-DDThh:mm:ssZ
+2025-01-01T12:00:00Z            // January 1, 2025, at 12:00 PM in UTC
+
+// Date Literals:
+// TODAY        - Starts at 00:00:00 of the current day
+// YESTERDAY    - Starts at 00:00:00 of the previous day
+// TOMORROW     - Starts at 00:00:00 of the next day
+
+// Date Literals:
+// LAST_WEEK     LAST_MONTH     LAST_YEAR     LAST_QUARTER
+// NEXT_WEEK     NEXT_MONTH     NEXT_YEAR     NEXT_QUARTER
+// THIS_WEEK     THIS_MONTH     THIS_YEAR     THIS_QUARTER
+
+// Use N to represent a number in the following date literals:
+
+// EX: LAST_N_DAYS:n - Starts at 00:00:00 of the day n days ago
+LAST_N_DAYS:7  // Starts at 00:00:00 of the day 7 days ago
+
+// EX: NEXT_N_DAYS:n - Starts at 00:00:00 of the day n days from now
+NEXT_N_DAYS:7  // Starts at 00:00:00 of the day 7 days from now
+
+// EX: LAST_N_WEEKS:n - Starts at 00:00:00 of the week n weeks ago
+LAST_N_WEEKS:4 // Starts at 00:00:00 of the week 4 weeks ago
