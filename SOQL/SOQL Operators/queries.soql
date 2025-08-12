@@ -1,0 +1,31 @@
+// SOQL Operators
+// Be aware of case sensitvity in SOQL queries
+
+// The Operator:                    Example Query:
+
+// Finds records that match 'John Doe' in the Name field
+Equals (=)                          Name='John Doe'
+
+// Finds records that do not match 'John Doe' in the Name field
+Not Equals (!=)                     Name!='John Doe'
+
+// Finds records where the Age field is less than 30
+Less Than (<)                       Age<30
+
+// Finds records where the Age field is less than or equal to 30
+Less Than or Equal To (<=)          Age<=30
+
+// Finds records where the Age field is greater than 30
+Greater Than (>)                    Age>30
+
+// Finds records where the Age field is greater than or equal to 30
+Greater Than or Equal To (>=)       Age>=30
+
+// Finds records where the Name field contains 'John' using wildcards
+Like (LIKE)                         Name LIKE 'John%'
+
+// Finds records where the Status field has 'Open' or 'Closed' status
+In (IN)                             Status IN ('Open', 'Closed')
+
+// Finds records where the Status field does not have 'Open' or 'Closed' status
+Not In (NOT IN)                     Status NOT IN ('Open', 'Closed')
