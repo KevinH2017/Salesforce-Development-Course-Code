@@ -1,0 +1,8 @@
+// Gets the first 10 records from Lead table
+SELECT Name, Status, LeadSource, Company, Email, CreatedDate FROM Lead LIMIT 10
+
+// Skips the first 5 records and gets the rest of the records from Lead table
+SELECT Name, Status, LeadSource, Company, Email, CreatedDate FROM Lead OFFSET 5
+
+// Gets the next 5 records from Lead table after the first 5, also in descending order of CreatedDate
+SELECT Name, Status, LeadSource, Company, Email, CreatedDate FROM Lead ORDER BY CreatedDate DESC LIMIT 5 OFFSET 5
