@@ -1,0 +1,34 @@
+// Relationship Queries - Parent to Child
+
+// The main object for query is the 'parent' object.
+
+// Example Query:
+SELECT CHILD_OBJ_FIELD FROM PARENT_OBJ
+
+// Gets names and registration numbers of schools along with their students' names and roll numbers.
+// Subqueries will show up as a nested query with parantheses and curly brackets.
+SELECT Name, RegistrationNumber, 
+(SELECT Name, RollNumber FROM STUDENTS)     // Subquery to get child records
+FROM School
+
+// Example Query for Account and Contacts tables
+SELECT Name, Phone, Website, 
+(SELECT Name FROM Contacts)     // Subquery to get Names from Contacts that are related to Account table
+FROM Account
+
+// Example Query 2:
+SELECT Name, Phone, Website, 
+(SELECT Name, Department, Email FROM Contacts   
+WHERE Department='Finance')         // Subquery to get Names, Departments, and Emails from Contacts related to Account table where Department is Finance
+FROM Account
+
+// Example Query 3:
+// You can have multiple subqueries in a single query.
+SELECT Name, Phone, Website, 
+(SELECT Name, Department, Email FROM Contacts WHERE Department='Finance'),
+(SELECT Name, Amount FROM Opportunities)
+FROM Account
+
+// Parent to Child - Limitations:
+// Only 1 level of Parent to Child is supported.
+// Up to 20 related objects are supported.
