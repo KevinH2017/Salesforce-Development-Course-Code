@@ -1,0 +1,35 @@
+// Relationship Queries - Child to Parent
+
+// The main object for query is the 'child' object.
+
+// Example Query:
+SELECT CHILD_OBJ_FIELD
+    PARENT.FIELD_1,
+    PARENT.FIELD_2
+FROM CHILD_TABLE
+
+// Parent Object Fields, School's Name and Registration Number
+SELECT Name, RollNumber,
+    School.Name,
+    School.RegistrationNumber
+FROM Student
+
+// Example Query 2:
+// Gets the Name, Phone, and Department from Contact and their Account Names and Websites
+SELECT Name, Phone, Department, 
+    Account.Name,               // Gets Name from related Account
+    Account.Website             // Gets Website from related Account
+FROM Contact
+
+// Example Query 3:
+// Can get the grandparent of a parent object as well, Owner is the parent of Account
+// Owner is the grandparent of Contact
+SELECT Name, Phone, Department, 
+    Account.Name,               // Gets Name from related Account
+    Account.Website,            // Gets Website from related Account
+    Account.Owner.Name          // Gets Owner's Name from related Account
+FROM Contact
+
+// Child to Parent - Limitations:
+// Only five levels of Child to Parent is supported.
+// Up to 55 related objects are supported.

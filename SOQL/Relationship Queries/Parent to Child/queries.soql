@@ -3,7 +3,9 @@
 // The main object for query is the 'parent' object.
 
 // Example Query:
-SELECT CHILD_OBJ_FIELD FROM PARENT_OBJ
+SELECT PARENT_OBJ_FIELD 
+(SELECT CHILD_OBJ_FIELD FROM CHILD_TABLE)
+FROM PARENT_TABLE
 
 // Gets names and registration numbers of schools along with their students' names and roll numbers.
 // Subqueries will show up as a nested query with parantheses and curly brackets.
