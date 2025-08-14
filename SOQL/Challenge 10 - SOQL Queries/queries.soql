@@ -1,0 +1,59 @@
+// Account is a parent of Contact
+// Contact is a parent object of Case
+
+// Step 1 (Search for Name, Department, Title):
+SELECT Name, Department, Title FROM Contact
+
+// Step 2 (Search for CaseNumber, Subject, and child Cases):
+SELECT Name, Department, Title, 
+(Select CaseNumber, Subject FROM Cases)             // Parent to Child
+FROM Contact
+
+// Step 3 (Gets parent Account Name and Rating fields):
+SELECT Name, Department, Title, 
+(Select CaseNumber, Subject FROM Cases),            // Parent to Child
+Account.Name, Account.Rating                        // Child to Parent
+FROM Contact
+
+// Step 4 (Account Name and Rating are initial columns in results):
+SELECT Account.Name, Account.Rating, 
+Name, Department, Title, 
+(Select CaseNumber, Subject FROM Cases) 
+FROM Contact
+
+
+// Step 5 (Filters Accounts to only 'Hot' Rating):
+SELECT Account.Name, Account.Rating, 
+Name, Department, Title, 
+(Select CaseNumber, Subject FROM Cases) 
+FROM Contact 
+WHERE Account.Rating='Hot'
+
+
+// Step 6 (Orders results alphabetically by Contact Name):
+SELECT Account.Name, Account.Rating, 
+Name, Department, Title, 
+(Select CaseNumber, Subject FROM Cases) 
+FROM Contact 
+WHERE Account.Rating='Hot' 
+ORDER BY Name
+
+
+// Step 7 (Retrieves only open cases):
+SELECT Account.Name, Account.Rating, 
+Name, Department, Title, 
+(Select CaseNumber, Subject FROM Cases 
+WHERE IsClosed=false) 
+FROM Contact 
+WHERE Account.Rating='Hot' 
+ORDER BY Name
+
+
+// Step 8 (Filters Contacts Department to only 'Technology' Department):
+SELECT Account.Name, Account.Rating, 
+Name, Department, Title, 
+(Select CaseNumber, Subject FROM Cases 
+WHERE IsClosed=false) 
+FROM Contact 
+WHERE Account.Rating='Hot' AND Department='Technology' 
+ORDER BY Name
