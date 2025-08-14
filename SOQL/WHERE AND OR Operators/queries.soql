@@ -1,0 +1,6 @@
+// OR Keyword, gets all rows with specific fields with Status 'Closed - Converted' or 'Closed - Not Converted'
+SELECT Name, Status, Company, Email FROM Lead WHERE Status='Closed - Converted' OR Status='Closed - Not Converted'
+
+// OR and AND Keyword, gets all rows with specific fields with Status and LeadSource, 
+// Can use parentheses to group conditions, making it easier to read
+SELECT Name, Status, LeadSource, Company, Email FROM Lead WHERE (Status='Closed - Converted' OR Status='Closed - Not Converted') AND LeadSource='Web'
