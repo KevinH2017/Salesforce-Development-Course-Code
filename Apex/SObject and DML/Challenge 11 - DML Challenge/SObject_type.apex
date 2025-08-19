@@ -1,4 +1,4 @@
-// Challenge 11 - DML Challenge with SObject type
+// Challenge 11 - DML Challenge using SObject type
 
 // Creates Account object and inserts it into database
 SObject acc1 = (SObject)Type.forName('Account').newInstance();
