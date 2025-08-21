@@ -5,7 +5,9 @@ Account acc1 = new Account(Name='WingNut Films', Rating='Warm');
 insert acc1;
 
 // Creates Opportunity object and inserts it into database
-Opportunity opp1 = new Opportunity(Name='Lord Of The Rings', StageName='Qualification', CloseDate= Date.today().addDays(30), Account=acc1);
+Opportunity opp1 = new Opportunity(Name='Lord Of The Rings', StageName='Qualification', CloseDate= Date.today().addDays(30));
+// Connects opp1 to acc1 through AccountId
+opp1.AccountId=acc1.Id;
 insert opp1;
 
 // Updates acc_name Name field
