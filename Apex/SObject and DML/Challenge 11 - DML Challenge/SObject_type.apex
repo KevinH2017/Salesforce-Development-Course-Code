@@ -1,12 +1,12 @@
 // Challenge 11 - DML Challenge using SObject type
 
-// Creates Account object and inserts it into database
+// Creates SObject Account and inserts it into database
 SObject acc1 = (SObject)Type.forName('Account').newInstance();
 acc1.put('Name', 'WingNut Films');
 acc1.put('Rating', 'Warm');
 insert acc1;
 
-// Creates Opportunity object and inserts it into database
+// Creates SObject Opportunity and inserts it into database
 SObject opp1 = (SObject)Type.forName('Opportunity').newInstance();
 opp1.put('Name', 'Lord Of The Rings');
 opp1.put('StageName', 'Qualification');
@@ -17,7 +17,6 @@ insert opp1;
 // Updates acc_name Name field
 List<SObject> acc_name = [SELECT Id, Name FROM Account WHERE Name='WingNut Films'];
 for (SObject so : acc_name) {
-    // so.Name = (String)so.get('New Line Cinema');
     so.put('Name', 'New Line Cinema');
 }
 update acc_name;
