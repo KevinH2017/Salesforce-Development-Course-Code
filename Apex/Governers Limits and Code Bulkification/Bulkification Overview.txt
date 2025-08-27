@@ -1,0 +1,12 @@
+Bulkification ensures that your code cna properly process more than one record at a time.
+
+Pros:
+- Consumes least amount of resources.
+- Less chances of hitting governor limits.
+- Reduces transaction execution time.
+
+Cons:
+- More complex code structure.
+- Requires careful planning and testing.
+
+*NEVER WRITE SOQL QUERIES AND DML STATEMENTS INSIDE FOR LOOPS!*
