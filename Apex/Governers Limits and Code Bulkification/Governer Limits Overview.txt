@@ -1,0 +1,8 @@
+Governor Limits are a set of rules in Salesforce that restrict the amount of resources that can be consumed by a single transaction. 
+These limits help ensure that no single transaction monopolizes shared resources, which could lead to performance issues or system instability. 
+Understanding and working within these limits is crucial for developing efficient Apex code.
+
+Website: https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_limits_intro.htm
+
+Certain design patterns should be used, such as bulk calls and foreign key relationships in queries.
+Most of the governor limits are per transaction, and some aren't, such as 24-hour limits.
