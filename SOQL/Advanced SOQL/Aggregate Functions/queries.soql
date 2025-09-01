@@ -1,0 +1,23 @@
+/* Aggregate Functions in SOQL, allow you to roll up and summarize data in a query
+
+ Aggregate Functions:
+    AVG() - Returns the average value of a numeric field
+    COUNT() and COUNT(fieldName) - Return number of rows
+    COUNT_DISTINCT() - Returns the number of unique non-null values in a field
+    MIN() - Returns the minimum value of a numeric field
+    MAX() - Returns the maximum value of a numeric field
+    SUM() - Returns the total sum of a numeric field
+*/
+
+// Examples:
+// Count of accounts
+SELECT COUNT() FROM Account
+
+// Max opportunity amount
+SELECT MAX(Amount) FROM Opportunity
+
+// Total opportunity amount
+SELECT SUM(Amount) FROM Opportunity
+
+// Average opportunity amount
+SELECT AVG(Amount) FROM Opportunity
