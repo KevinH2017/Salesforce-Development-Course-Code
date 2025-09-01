@@ -1,0 +1,15 @@
+// GROUP BY Clause
+// The GROUP BY clause is used to group records instead of processing many individual records
+
+// Examples:
+// Number of Leads associated with each Lead Source
+SELECT LeadSource, COUNT(Id) FROM Lead GROUP BY LeadSource
+
+// Max opportunity amount in each stage
+SELECT StageName, MAX(Amount) FROM Opportunity GROUP BY StageName
+
+// Multiple aggregate functions
+SELECT StageName, COUNT(Id), MAX(Amount), MIN(Amount), AVG(Amount) FROM Opportunity GROUP BY StageName
+
+// Selecting multiple fields
+SELECT StageName, LeadSource, COUNT(Id), MAX(Amount), MIN(Amount), AVG(Amount) FROM Opportunity GROUP BY StageName, LeadSource
