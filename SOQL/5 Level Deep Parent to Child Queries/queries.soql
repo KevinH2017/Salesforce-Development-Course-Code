@@ -1,0 +1,29 @@
+// SOQL parent-to-child relationship queries can now contain a parent root as the first level of the query
+// and child relationships up to four levels deep from the parent root. You can track the number of 
+// aggregate queries processed in an SQL statement with Limits.getAggrateQueries() method.
+// Limits.getAggreateQueries() returns a value of 300, which is the total number of aggregate queries
+// that can be processed with SOQL query statements.
+/* Example:
+List<Account> accts = 
+[SELECT Name,
+    (SELECT LastName,
+        (SELECT AssetLevel,
+            (SELECT Description,
+                (SELECT LineItemNumber FROM WorkOrderLineItems)    
+            FROM WorkOrders)    
+        FROM Assets)    
+    FROM Contacts)    
+FROM Account];
+*/
+
+List<Account> accounts = [
+    SELECT Name, (
+        SELECT LastName, (
+            SELECT Subject, (
+                SELECT CommentBody 
+                FROM CaseComments) 
+            FROM Cases) 
+        FROM Contacts) 
+    FROM Account];
+
+System.debug('Accounts: ' + accounts);
