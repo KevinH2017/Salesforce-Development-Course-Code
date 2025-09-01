@@ -50,7 +50,10 @@ public with sharing class CTPersonController {
                 FROM Person 
                 WHERE Id = :personId];
         // Return the first person or null if none found
-        return people != null && people.size() > 0 ? people[0] : null;
+        if (people != null && people.size() > 0) {
+            return people[0];
+        }
+        return null;
     }
 
 }
