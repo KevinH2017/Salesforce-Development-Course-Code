@@ -61,17 +61,17 @@ public with sharing class CTPersonController {
      */
     public static Map<String, Integer> getHealthStatusCount() {
         // Map to store health status counts
-        Map<String, Integer> statusCountMap = new Map<String, Integer>();
+        Map<String, Integer> healthStatusMap = new Map<String, Integer>();
         // Query Person records to find number of people in each health status and puts them into the map
         for (AggregateResult result : [SELECT Health_Status__c, COUNT(Id) total
                                         FROM Person 
                                         GROUP BY Health_Status__c]) {
             // Uses type casting
-            statusCountMap.put(
+            healthStatusMap.put(
                 (String)result.get('Health_Status__c'), 
                 (Integer)result.get('total'));   
         }
-        return statusCountMap;
+        return healthStatusMap;
     }
 
 }
