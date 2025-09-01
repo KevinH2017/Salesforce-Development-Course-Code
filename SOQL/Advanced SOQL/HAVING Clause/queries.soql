@@ -1,0 +1,4 @@
+// HAVING clause is an optional clause that can be used in a SOQL query to filter results that aggregate functions return
+
+// Group by StageName where Sum of amount is greater than 500,000
+SELECT StageName, SUM(Amount) FROM Opportunity GROUP BY StageName HAVING SUM(Amount) > 500000
