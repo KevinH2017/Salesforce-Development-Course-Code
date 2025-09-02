@@ -1,0 +1,1 @@
+Setup > Object Manager > Lead > Triggers > Name of trigger program > Edit > uncheck 'Active' > Save
