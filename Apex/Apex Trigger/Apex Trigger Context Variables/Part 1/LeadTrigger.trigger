@@ -18,5 +18,5 @@ trigger LeadTrigger on Lead (before insert, before update) {
             leadRecord.addError('Industry field cannot be blank');
         }
     }
-    System.debug('Lead trigger 1 executed');
+    System.debug('Lead trigger executed');
 }
