@@ -1,0 +1,8 @@
+On which object should you write the trigger?
+
+You should write the trigger on the object that is going to cause the action to happen.
+
+For example, if you want to create a task when a lead is created, you should write the trigger on the Lead object.
+If you want to create a task when an opportunity is closed, you should write the trigger on the Opportunity object.
+If you want to send an email when a case is escalated, you should write the trigger on the Case object.
+If you want to update a related record when a record is updated, you should write the trigger on the object that is being updated.
