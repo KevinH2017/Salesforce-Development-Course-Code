@@ -1,0 +1,20 @@
+Order of Execution:
+
+1.) Process Starts
+2.) System Validation Rules
+3.) Record triggered flows
+4.) Before Triggers
+4.) Custom Validation Rules
+5.) Duplicate Rules
+6.) Save the record to the database, no commit
+7.) After Triggers
+8.) Assignment Rules
+9.) Auto-Response Rules
+10.) Workflow Rules
+11.) Processes and flows
+12.) Escalation and Entitlement Rules
+13.) Record triggered flows
+14.) Roll up summary
+15.) Sharing rule evaluation
+16.) Commit all DML changes
+17.) Post commit operations (send email, enqueue jobs, etc.)
