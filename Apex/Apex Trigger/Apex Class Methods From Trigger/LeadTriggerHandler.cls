@@ -1,5 +1,7 @@
 public class LeadTriggerHandler {
 
+    public static boolean alreadyExecuted = false;
+
     public static void beforeInsertHandler(List<Lead> newRecords) {
         for (Lead leadRecord : newRecords) {
             // Will change Lead Source BEFORE the record is saved and if the Lead Source is blank
@@ -11,6 +13,7 @@ public class LeadTriggerHandler {
                 leadRecord.addError('Industry field cannot be blank');
             }
         }
+
     }
 
     public static void afterInsertHandler(List<Lead> newRecords) {
@@ -23,10 +26,13 @@ public class LeadTriggerHandler {
         }
         // Insert the list of tasks at once, helps avoid governor limits, EX: 'Too many DML statements: 151'
         insert taskList;
-
-        // Will recursively call the trigger by inserting another lead record, causing an error
-        Lead anotherLead = new Lead(LastName='Test Lead Single', Status='Open - Not Contacted', Company='Test Company', Industry='Other');
-        insert anotherLead;
+        
+        // Checks if the trigger has already executed to avoid recursion
+        if (LeadTriggerHandler.alreadyExecuted == false) {
+            Lead anotherLead = new Lead(LastName='Test Lead Single', Status='Open - Not Contacted', Company='Test Company', Industry='Other');
+            insert anotherLead;
+            LeadTriggerHandler.alreadyExecuted = true;
+        }
     }
 
     public static void beforeUpdateHandler(List<Lead> newRecords, Map<Id, Lead> oldRecordsMap) {
