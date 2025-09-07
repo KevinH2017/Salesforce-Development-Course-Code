@@ -11,7 +11,7 @@ public with sharing class CTLocationTracingController {
      */
     public static List<String> getVisitors(String locationId) {
         return [SELECT Visitor__c 
-                FROM Location_Trace__c 
+                FROM Location_Tracing__c 
                 WHERE Location__c = :locationId
                 ORDER BY Visit_Date__c DESC];
     }
@@ -22,7 +22,7 @@ public with sharing class CTLocationTracingController {
      */
     public static List<String> getLocationsByPersonIds(Set<Id> personIds) {
         return [SELECT Location__c 
-                FROM Location_Trace__c 
+                FROM Location_Tracing__c 
                 WHERE Visitor__c IN :personIds
                     AND Visit_Date__c = LAST_N_DAYS:10];
     }
@@ -33,7 +33,7 @@ public with sharing class CTLocationTracingController {
      */
     public static List<String> getLocationsByLocationIds(Set<Id> locationIds) {
         return [SELECT Location__c 
-                FROM Location_Trace__c 
+                FROM Location_Tracing__c 
                 WHERE Location__c IN :locationIds
                     AND Person_Health_Status__c = 'Green'
                     AND Visit_Date__c = LAST_N_DAYS:10];
@@ -54,7 +54,7 @@ public with sharing class CTLocationTracingController {
 
         // Query for location and person IDs
         List<Location_Tracing__c> existingRecords = [SELECT Id, Location__c, Visitor__c
-                                                FROM Location_Trace__c
+                                                FROM Location_Tracing__c
                                                 WHERE Location__c IN :locationIds
                                                     AND Visitor__c IN :personIds];
 

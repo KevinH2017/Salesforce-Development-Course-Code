@@ -20,39 +20,60 @@ public with sharing class CTPersonTriggerHandler {
         }
     }
 
-    public static void afterUpdate(List<Location> newRecords) {
-        // Gets all locations visited by the person in the last 10 days
-        List<Location> locations = [
-            SELECT Location__c 
-            FROM Location_Trace__c 
-            WHERE Visitor__c IN :newRecords
-                AND Visit_Date__c = LAST_N_DAYS:10];
-
-        // Holds unique locations person visited
-        Set<Id> uniqueLocations = new Set<Id>();
-        for (Location location : locations) {
-            uniqueLocations.add(p.location);
-        }
-
-        for (Location location : uniqueLocations) {
-            location.Red_Score__c += 1;
-        }
-
+    public static void afterUpdate(List<Person> newRecords, Map<Id, Person> oldRecords) {
+        Set<Id> statusChange = new Set<Id>();
+        Set<Id> redStatus = new Set<Id>();
         for (Person p : newRecords) {
-            // If person's health status updates to Red, 
-            // update Cohabitants, Primary Contacts, Neighbors, and Secondary Contacts to appropriate statuses
-            if (p.Health_Status__c.contains('Red')) {
-                if (!p.Cohabitants.contains('Red') || !p.Cohabitants.contains('Orange')) {
-                    p.Cohabitants = 'Orange';
-                } else if (!p.Primary_Contacts.contains('Red') || !p.Primary_Contacts.contains('Orange')) {
-                    p.Primary_Contacts = 'Orange';
-                } else if (!p.Neighbors.contains('Red') || !p.Neighbors.contains('Yellow') || !p.Neighbors.contains('Yellow')) {
-                    p.Neighbors = 'Yellow';
-                } else if (!p.Secondary_Contacts.contains('Red') || !p.Secondary_Contacts.contains('Orange')) {
-                    p.Secondary_Contacts = 'Yellow';
-                }
-
+            // If health status is changed, update Status_Update_Date__c to current datetime
+            if (p.Health_Status__c != oldRecords.get(p.Id).Health_Status__c) {
+                statusChange.add(p.Id);
             }
+            // Checks if health status is changed to 'Red'
+            if (p.Health_Status__c == 'Red' && oldRecords.get(p.Id).Health_Status__c) {
+                redStatus.add(p.Id);
+            }
+        }
+        // Keeps track of already processed records, to avoid duplicates
+        Set<Id> alreadyProcessed = new Set<Id>();
+        alreadyProcessed.addAll(redStatus);
+
+        Set<Id> orangeStatus = new Set<Id>();
+        Set<Id> yellowStatus = new Set<Id>();
+
+        // List of people to update Health_Status__c
+        List<Person> personToUpdate = new List<Person>();
+
+        // Add cohabitants
+        orangeStatus.addAll(CTPersonController.getCohabitants(redStatus, alreadyProcessed));
+        // Add primary contacts
+        Set<Id> primaryContacts = CTPersonController.getPrimaryContacts(redStatus, alreadyProcessed);
+        orangeStatus.addAll(primaryContacts);
+        // Add neighbors
+        yellowStatus.addAll(CTPersonController.getNeighbors(redStatus, alreadyProcessed));
+        // Add secondary contacts
+        yellowStatus.addAll(CTPersonController.getSecondaryContacts(primaryContacts, alreadyProcessed));
+
+        // Adds people to update list 
+        for (Id pid : orangeStatus) {
+            personToUpdate.add(new Person(Id=pid, Health_Status__c='Orange'));
+        }
+        for (Id pid : yellowStatus) {
+            personToUpdate.add(new Person(Id=pid, Health_Status__c='Yellow'));
+        }
+
+        // Updates health status of people if there are any
+        if (personToUpdate.size() > 0){
+            update personToUpdate;
+        }
+
+        // Gets locations visited by people with red status
+        List<Location_Tracing__c> locationTraces = CTLocationTracingController.getLocationsByPersonIds(statusChange);
+        if (locationTraces != null && locationTraces.size() > 0) {
+            Set<Id> locationIds = new Set<Id>();
+            for (Location_Tracing__c location : locationTraces) {
+                locationIds.add(location.Id);
+            }
+            CTLocationController.updateRedScore(locationIds);
         }
     }
 }

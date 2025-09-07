@@ -5,12 +5,12 @@
  */
 public with sharing class CTLocationController {
 
-    /** Gets all recent status changes of a location, limited to 100 records
+    /** Gets all recent status changes of a Location_Tracing__c, limited to 100 records
      * @return List of recent status changes
      */
     public static List<String> getRecentStatusChanges() {
         return [SELECT Id, Name, Status__c 
-                FROM Location 
+                FROM Location_Tracing__c 
                 ORDER BY Status_Update_Date__c DESC 
                 LIMIT 100];
     }
@@ -23,7 +23,7 @@ public with sharing class CTLocationController {
         // Prepares the search term for wildcard search
         searchTerm = '%' + searchTerm + '%';
         return [SELECT Id, Name, Status__c 
-                FROM Location 
+                FROM Location_Tracing__c 
                 WHERE Name LIKE :searchTerm 
                     OR PinCode LIKE :searchTerm 
                     OR Address LIKE :searchTerm 
@@ -37,7 +37,7 @@ public with sharing class CTLocationController {
      */
     public static String getLocationById(String locationId) {
         List<String> locations = [SELECT Id, Name, Status__c 
-                FROM Location 
+                FROM Location_Tracing__c 
                 WHERE Id = :locationId];
         // Return the first location or null if none found
         if (locations != null && locations.size() > 0) {
@@ -46,21 +46,41 @@ public with sharing class CTLocationController {
         return null;
     }
 
-    /** Gets the count of locations in each health status
-     * @return Map of health status and their respective counts
-     */
-    public static Map<String, Integer> getStatusCount() {
-        // Map to store location counts
-        Map<String, Integer> locationCountMap = new Map<String, Integer>();
-        // Query Location records to find number of locations in each status and puts them into the map
-        for (AggregateResult result : [SELECT Status__c, COUNT(Id) total
-                                        FROM Location 
-                                        GROUP BY Status__c]) {
-            // Uses type casting
-            locationCountMap.put(
-                (String)result.get('Status__c'), 
-                (Integer)result.get('total'));
+    public static void updateRedScore(Set<Id> locationIds) {
+        List<Location__c> locationToUpdate = new List<Location__c>();
+        // Query for the number of red people per location
+        AggregateResult[] redPeoplePerLocation = [
+            SELECT Location__c, COUNT(Id) total
+            FROM Location_Tracing__c 
+            WHERE Person__r.Health_Status__c = 'Red'
+                AND Visit_Date__c = LAST_N_DAYS:10
+                AND Location__c IN :locationIds
+            GROUP BY Location__c];
+        
+        // Gets the location ID and red score for each location
+        for (AggregateResult ar : redPeoplePerLocation) {
+            String locationId = (String)ar.get('Location__c');
+            Integer redScore = (Integer)ar.get('total');
+            String status = getStatus(redScore);
+            locationToUpdate.add(new Location__c(Id=locationId, Red_Score=redScore, Status__c=status));
         }
-        return locationCountMap;
+
+        // Updates locations if there are any
+        if (locationToUpdate != null && locationToUpdate.size() > 0) {
+            update locationToUpdate;
+        }
+    }
+
+    public static String getStatus(Integer redScore) {
+        // Returns status based on red score
+        if (redScore == 0) {
+            return 'Green';
+        } else if (redScore <= 5) {
+            return 'Yellow';
+        } else if (redScore <= 10) {
+            return 'Orange';
+        } else {
+            return 'Red';
+        }
     }
 }
