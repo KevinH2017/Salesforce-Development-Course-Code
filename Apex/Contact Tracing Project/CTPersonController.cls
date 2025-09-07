@@ -6,11 +6,11 @@
 public with sharing class CTPersonController {
 
     /** Generates a unique hash using md5 algorithm using Crypto.generateDigest to generate a one-way hash
-     * @param mobile The mobile number to hash
+     * @param Mobile__c The mobile number to hash
      * @return String token
      */
-    public static String getToken(String mobile) {
-        Blob hash = Crypto.generateDigest('MD5', Blob.valueOf(mobile));
+    public static String getToken(String Mobile__c) {
+        Blob hash = Crypto.generateDigest('MD5', Blob.valueOf(Mobile__c));
         // Converts hash to string
         return EncodingUtil.base64Encode(hash);
     }
@@ -72,6 +72,33 @@ public with sharing class CTPersonController {
                 (Integer)result.get('total'));   
         }
         return healthStatusMap;
+    }
+
+    public static Set<Id> getCohabitants(Set<Id> personIds) {
+        // Creates list with values 'Green' and 'Yellow' by default
+        List<String> healthStatuses = new List<String>{'Green', 'Yellow'};
+        // Gets all cohabitants of the person and their health status
+        List<People_Tracing__c> peopleTraces = [
+            SELECT Id, Person_1__c, Person_2__c
+            FROM People_Tracing__c
+            WHERE (Person_1__c IN :personIds
+                OR Person_2__c IN :personIds)
+                AND Contact_Type__c = 'Cohabitant'
+                AND (Person_1__r.Health_Status__c IN :healthStatuses
+                    OR Person_2__r.Health_Status__c IN :healthStatuses)
+        ];
+        // Adds cohaitants based on their health statuses
+        Set<Id> cohabitants = new Set<Id>();
+        for (People_Tracing__c trace : peopleTraces) {
+            if (!personIds.contains(trace.Person_1__c)) {
+                cohabitants.add(trace.Person_1_c);
+            }
+            if (!personIds.contains(trace.Person_2__c)) {
+                cohabitants.add(trace.Person_2__c);
+            }
+        }
+        // Returns set of unique cohabitants
+        return cohabitants;
     }
 
 }

@@ -1,0 +1,4 @@
+What I did so far:
+- Created duplicate check for people tracing records
+- Created duplicate check for location tracing records
+- Generate unique tokens for people tracing records using MD5 hashing

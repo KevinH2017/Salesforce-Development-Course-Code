@@ -4,3 +4,4 @@ It allows organizations to quickly identify and notify potentially affected indi
 It is no longer available in Salesforce as of Winter 2022 release.
 
 The files in this folder are for notes and reference purposes only.
+None of the code in this folder is intended for production use.
