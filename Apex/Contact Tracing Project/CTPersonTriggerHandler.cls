@@ -1,3 +1,9 @@
+/**
+ * CTPersonTriggerHandler
+ * Main trigger handler class for CT project
+ * @description This trigger handler is used to update the health status of a person
+ * @author Kevin
+ */
 public with sharing class CTPersonTriggerHandler {
 
     public static void beforeInsert(List<Person> newRecords) {

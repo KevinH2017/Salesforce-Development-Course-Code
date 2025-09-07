@@ -1,3 +1,9 @@
+/**
+ * CTPersonTrigger
+ * Main trigger class for CT project Person object
+ * @description This trigger is used to update the health status of a person
+ * @author Kevin
+ */
 trigger CTPersonTrigger on Person (
     before insert, after insert, 
     before update, after update, 
@@ -17,14 +23,6 @@ trigger CTPersonTrigger on Person (
             ContactTiggerHandler.beforeUpdate(Trigger.new, Trigger.oldMap);
         }
 
-        when BEFORE_DELETE {
-
-        }
-
-        when AFTER_INSERT {
-
-        }
-
         when AFTER_UPDATE {
             /* Updates the Red Score and Status of all locations they visited in the last 10 days
             If Health Status updates to Red:
@@ -34,14 +32,6 @@ trigger CTPersonTrigger on Person (
                 Mark all secondary contacts Yellow - Except Red and Orange ones
             Update the Red Score and Status of all the locations they visited in the last 10 days */
             ContactTiggerHandler.afterUpdate(Trigger.new, Trigger.oldMap);
-        }
-
-        when AFTER_DELETE {
-
-        }
-
-        when AFTER_UNDELETE {
-
         }
     }
 }
