@@ -70,7 +70,7 @@ public with sharing class ContactTriggerHandlerTest {
         insert testAccounts;
 
         List<Contact> testContacts = new List<Contact>();
-        // Creates 1000 contacts
+        // Creates 1000 contacts for Account object 'Test 1'
         for (Integer i = 0; i < 1000; i++) {
             testContacts.add(new Contact(LastName = 'Test Contact ' + i, AccountId = testAccounts[0].Id, Active__c = true));
         }
@@ -83,6 +83,7 @@ public with sharing class ContactTriggerHandlerTest {
         List<Account> accs = [SELECT Id, Name, Active_Contacts__c FROM Account];
         System.assertEquals(2, accs.size());
         for (Account acc : accs) {
+            // Checks if there are 1000 active contacts for the account
             if (acc.Name == 'Test 1') {
                 System.assertEquals(1000, acc.Active_Contacts__c);
             }
