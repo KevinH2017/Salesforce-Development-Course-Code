@@ -120,6 +120,7 @@ public with sharing class ContactTriggerHandlerTest {
         insert testContacts;
         
         List<Contact> allContacts = [SELECT Id, LastName FROM Contact];
+        // Marks contact as active if their LastName is 'Test Contact 1' or 'Test Contact 2'      
         for (Contact c : allContacts) {
             if (c.LastName == 'Test Contact 1' || con.LastName == 'Test Contact 2') {
                 c.Active__c = true;
@@ -145,7 +146,7 @@ public with sharing class ContactTriggerHandlerTest {
     }
 
     @isTest
-    public static void afterUpdateHandlerTest() {
+    public static void afterUpdateHandlerTest2() {
         List<Account> testAccounts = new List<Account>();
         testAccounts.add(new Account(Name='Test 1'));
         testAccounts.add(new Account(Name='Test 2'));
