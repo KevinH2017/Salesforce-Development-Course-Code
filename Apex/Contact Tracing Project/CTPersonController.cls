@@ -76,6 +76,7 @@ public with sharing class CTPersonController {
 
     /** Gets cohabitants and their health statuses
      * @param personIds The IDs of the people to retrieve cohabitants for
+     * @param alreadyProcessed The IDs of the people that have already been processed
      * @return Set of cohabitants
      */
     public static Set<Id> getCohabitants(Set<Id> personIds, Set<Id> alreadyProcessed) {
@@ -109,6 +110,7 @@ public with sharing class CTPersonController {
 
     /** Gets neighbors if their health status is Green
      * @param personIds The IDs of the people to retrieve neighbors for
+     * @param alreadyProcessed The IDs of the people that have already been processed
      * @return Set of neighbors
      */
     public static Set<Id> getNeighbors(Set<Id> personIds, Set<Id> alreadyProcessed) {
@@ -140,6 +142,7 @@ public with sharing class CTPersonController {
 
     /** Gets primary contacts their health statuses for the last 10 days
      * @param personIds The IDs of the people to retrieve primary contacts for
+     * @param alreadyProcessed The IDs of the people that have already been processed
      * @return Set of primary contacts
      */
     public static Set<Id> getPrimaryContact(Set<Id> personIds, Set<Id> alreadyProcessed) {
@@ -174,6 +177,7 @@ public with sharing class CTPersonController {
 
     /** Gets secondary contacts for the last 10 days if their health statuses are Green
      * @param primaryContactIds The IDs of the people to retrieve secondary contacts for
+     * @param alreadyProcessed The IDs of the people that have already been processed
      * @return Set of secondary contacts
      */
     public static Set<Id> getSecondaryContact(Set<Id> primaryContactIds, Set<Id> alreadyProcessed) {

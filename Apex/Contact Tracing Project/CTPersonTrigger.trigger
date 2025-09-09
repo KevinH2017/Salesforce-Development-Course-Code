@@ -4,10 +4,7 @@
  * @description This trigger is used to update the health status of a person
  * @author Kevin
  */
-trigger CTPersonTrigger on Person (
-    before insert, after insert, 
-    before update, after update, 
-    before delete, after delete, after undelete) {
+trigger CTPersonTrigger on Person (before insert, before update, after update) {
 
     switch on Trigger.operationType {
         
