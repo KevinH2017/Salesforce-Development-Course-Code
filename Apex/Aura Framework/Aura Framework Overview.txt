@@ -1,0 +1,16 @@
+Aura Component Framework is:
+    - Component based Framework
+    - Develop single page applications
+    - For Desktop and Mobile
+
+It is used for the frontend development in Salesforce applications
+
+People use Aura Component because:
+    - Faster app development
+    - Easier maintenance
+    - Great flexibility
+    - Out of the box components
+
+Component Bundles appear on the right hand side
+They help make it easier to keep track of changes made to the application
+Such as CSS Style, Javascript, or Documentation tabs
