@@ -1,0 +1,107 @@
+:::Aura Attributes:::
+
+Attributes in aura components are like variables of an apex class
+They can store client side data in Attributes
+
+Example:
+<aura:attribute name="att-name" type="String" access="private" default="def-value" required"false" />
+
+:::Keywords:::
+name (String) - Name of attribute
+
+type (String) - The attribute type, this is required for the attribute
+
+access (String) - private, public, global
+    - private means it is available within the component, app, interface, or event,
+        or method and can't be referenced outside the resource
+    - public access means that it is available within your org only,
+        this is the default value
+    - global means it is available in ALL orgs
+
+default (String) - Default value of attribute
+
+required (Boolean) - Determines if attribute is required, default value is false
+
+description (String) - A summary of the attribute and its usage
+
+:::Aura Attribute Types:::
+
+Basic Types:
+
+Boolean
+    Valid values are true or false, to set a default value of true use default="true"
+        EX: <aura:attribute name="showDetail" type="Boolean" />
+
+Date
+    A date corresponding to a calender day in the format yyyy-mm-dd, the hh:mm:ss portion of the date isn't stored,
+    to include time fields, use DateTime instead
+        EX: <aura:attribute name="startDate" type="Date" />
+
+DateTime
+    A date corresponding to a timestamp, it includes date and time details with millisecond precision
+        EX: <aura:attribute name="lastModifiedDate" type="DateTime" />
+
+Decimal
+    Decimal values can contain fractional portions (digits to the right of the decimal)
+    Decimal is better than Double for maintaining precision for floating-point calculations, it is preferrable for currency fields
+    Maps to java.math.BigDecimal
+        EX: <aura:attribute name="totalPrice" type="Decimal" />
+
+Double
+    Double values can contain fractional portions
+    Maps to java.lang.Double
+        EX: <aura:attribute name="widthInchesFractional" type="Double" />
+
+Integer
+    Integer values can contain numbers with no fractional portion
+    Maps to java.lang.Integer, which defines its limits, such as maximum size
+        EX: <aura:attribute name="numRecords" type="Integer" />
+
+Long
+    Long values can contain numbers with no fractional portion
+    Maps to java.lang.Long, which defines its limits, such as maximum size
+        EX: <aura:attribute name="numSwissBankAccount" type="Long" />
+
+String
+    A sequence of characters
+        EX: <aura:attribute name="message" type="String" />
+
+Collection Types:
+
+type[](Array)
+    An array of items of a defined type
+        EX: <aura:attribute name="colorPalette" type="String[]" default="['red', 'green', 'blue']" />
+
+List
+    An ordered collection items
+        EX: <aura:attribute name="colorPalette" type="List" default="['red', 'green', 'blue']" />
+
+Map
+    A collection that maps keys to values, a map can't contain duplicate keys, each key can map to at most one value
+    An attribute with no default value defaults to null in JavaScript, to set map values use defaults="{}" for an empty map
+        EX: <aura:attribute name="sectionLabels" type="Map" default="{ a: 'label1', b: 'label2' }" />
+
+Set
+    A collection that contains no duplicate elements, the order for set items is not guaranteed
+    For example, "['red', 'green', 'blue']" might be returned as blue, green, red
+    To set a default value, surround comma-separated values with []
+    For example default="['red', 'green', 'blue']"
+    Setting a default value without square brackets is deprecated and can lead to unexpected behavior
+        EX: <aura:attribute name="collection" type="Set" default="['red', 'green', 'blue']" />
+
+::Object Type:::
+
+An attribute can have a type corresponding to an Object
+    EX: <aura:attribute name="data" type="Object" />
+
+:::Function Type:::
+
+Function
+    An attribute of an aura:method is it can have a type corresponding to a JavaScript function so that you can pass a function into the method
+    An attribute of a component can't have a type
+    NOTE:
+        Don't send attributes with type="Function" to the server
+        These attributes are intended to only be used on the client side
+        The most robust way to communicate between components is to use an event
+        If you get an error in a component with an attribute of type Function, 
+        fire an event in the child component instead and handle it in the parent component
