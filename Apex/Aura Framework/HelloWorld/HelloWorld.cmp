@@ -1,3 +1,11 @@
 <aura:component implements="flexipage:availableForAllPageTypes" access="global" >
-	Hello World
+	<!-- Creates simple card with footer -->
+    <lightning:card footer="Hello World Footer" title="Hello World">
+        <p class="slds-p-horizontal_small">
+            Card Body (custom component)
+			<!-- Green button -->
+            <!-- Success variant: Identifies a successful action -->
+        	<lightning:button variant="success" label="Success" title="Success"/>
+        </p>
+    </lightning:card>
 </aura:component>
