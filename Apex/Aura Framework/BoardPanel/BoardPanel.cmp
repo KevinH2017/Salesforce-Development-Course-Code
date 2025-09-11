@@ -12,13 +12,35 @@
     />
 
     <lightning:card title="Word Shuffle">
-        <!-- Drop down menu with labels and values from above aura:attribute named 'modes' -->
-        <lightning:combobox name="gameMode" label="Game Mode" value="inProgress" options="{!v.modes}" placeholder="Select Game Mode" />
-
-        <lightning:button variant="brand" label="Start New Game" title="Start New Game" />
-
-        <lightning:button label="Reshuffle" title="Reshuffle" />
-
-
+        <!-- Layout for items -->
+        <lightning:layout horizontalAlign="center">
+            <!-- Lightning layout must have total size be equal to 12, if no value it will automatically space the items -->
+            <lightning:layoutItem padding="around-small">
+                <!-- Drop down menu with labels and values from above aura:attribute named 'modes' -->
+                <lightning:combobox 
+                    name="gameMode" 
+                    label="Game Mode" 
+                    value="inProgress" 
+                    options="{!v.modes}" 
+                    placeholder="Select Game Mode"
+                    variant="label-hidden"
+                    aura:id="gameMode"
+                />
+            </lightning:layoutItem>
+            <lightning:layoutItem padding="around-small">
+                <lightning:button 
+                    aura:id="startNewGameButton" 
+                    variant="brand" 
+                    label="Start New Game" 
+                    title="Start New Game" onclick="{!c.startGame}" />
+            </lightning:layoutItem>
+            <lightning:layoutItem padding="around-small">
+                <lightning:button 
+                    aura:id="reshuffleButton" 
+                    label="Reshuffle" 
+                    title="Reshuffle" 
+                    onclick="{!c.reshuffleBoard}" />
+            </lightning:layoutItem>
+        </lightning:layout>
     </lightning:card>
 </aura:component>
