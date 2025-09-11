@@ -14,3 +14,5 @@ People use Aura Component because:
 Component Bundles appear on the right hand side
 They help make it easier to keep track of changes made to the application
 Such as CSS Style, Javascript, or Documentation tabs
+
+Bundles are created with >SFDX: Create Aura Component and put into {root}\force-app\main\default\aura
