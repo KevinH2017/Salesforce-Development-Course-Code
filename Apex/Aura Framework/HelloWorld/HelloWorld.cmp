@@ -1,11 +1,14 @@
 <aura:component implements="flexipage:availableForAllPageTypes" access="global" >
-	<!-- Creates simple card with footer -->
-    <lightning:card footer="Hello World Footer" title="Hello World">
+    <!-- Variables with name, data type, and default values -->
+    <aura:attribute name="greeting" type="String" default="Hello World" />
+    <aura:attribute name="numberTest" type="Integer" default="11" />
+    <aura:attribute name="booleanTest" type="Boolean" default="false" />
+    
+    <!-- Variables are defined by "{!v.VARIABLE_NAME}" -->
+    <lightning:card footer="Hello World Footer" title="{!v.greeting}">
         <p class="slds-p-horizontal_small">
-            Card Body (custom component)
-			<!-- Green button -->
-            <!-- Success variant: Identifies a successful action -->
-        	<lightning:button variant="success" label="Success" title="Success"/>
+            {!v.greeting} {!v.numberTest} {!v.booleanTest}
+        	<lightning:button variant="success" label="{!v.greeting}" title="Success"/>
         </p>
     </lightning:card>
 </aura:component>
