@@ -12,7 +12,7 @@
     />
 
     <lightning:card title="Word Shuffle">
-        <!-- Drop down menu with labels and values from above aura:attribute -->
+        <!-- Drop down menu with labels and values from above aura:attribute named 'modes' -->
         <lightning:combobox name="gameMode" label="Game Mode" value="inProgress" options="{!v.modes}" placeholder="Select Game Mode" />
 
         <lightning:button variant="brand" label="Start New Game" title="Start New Game" />
