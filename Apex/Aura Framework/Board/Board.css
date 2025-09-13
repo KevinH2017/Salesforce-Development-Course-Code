@@ -1,0 +1,11 @@
+/* Does not need a space because object is a direct child of aura:component */
+.THIS.board {
+    background: #f7fafc;
+    position: relative;
+}
+
+/* Requires space between .THIS and .win-word because object is NOT a direct child of aura:component */
+.THIS .win-word {
+    text-transform: uppercase;
+    font-weight: bold;
+}
