@@ -10,12 +10,10 @@
     {'label': 'Hard', 'value': 'hard'},
     ]"
     />
-
     <aura:attribute name="selectedMode" type="String" />
-
     <lightning:card title="Word Shuffle">
         <!-- Layout for items -->
-        <lightning:layout horizontalAlign="center">
+        <lightning:layout horizontalAlign="center" multipleRows="true">
             <!-- Lightning layout must have total size be equal to 12, if no value it will automatically space the items -->
             <lightning:layoutItem padding="around-small">
                 <!-- Drop down menu with labels and values from above aura:attribute named 'modes' -->
@@ -43,13 +41,26 @@
                     title="Reshuffle" 
                     onclick="{!c.reshuffleBoard}" />
             </lightning:layoutItem>
+
+            <!-- If a mode is selected, display the board -->
+            <aura:if isTrue="{! (v.selectedMode) != null}">
+                <lightning:layoutItem size="12">
+                    <!-- Sets mode variable in Board.cmp to selectedMode variable -->
+                    <c:Board mode="{!v.selectedMode}"></c:Board>
+
+                    <!-- Will display if selectedMode is null -->
+                    <!-- <aura:set attribute="else">else part</aura:set> -->
+                </lightning:layoutItem>
+            </aura:if>
+
         </lightning:layout>
-        <!-- Unbound expression:
-            Changes from JS appear on HTML and vice versa -->
-        <p>Selected mode is: {!v.selectedMode}</p>
         <!-- Bound expression:
+            Changes from JS appear on HTML and vice versa -->
+        <!-- <p>Selected mode is: {!v.selectedMode}</p> -->
+        <!-- Unbound expression:
             Only changes from JS and HTML occur one way 
             (HTML changes affect JS, then JS changes won't appear on HTML, and vice versa) -->
         <!-- <p>Selected mode is: {#v.selectedMode}</p> -->
     </lightning:card>
+
 </aura:component>

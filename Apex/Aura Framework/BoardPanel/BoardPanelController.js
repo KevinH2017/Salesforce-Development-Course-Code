@@ -10,18 +10,18 @@
 
         // Update selectedMode attribute
         component.set('v.selectedMode', selectedValue);
-        console.log('The start new game is clicked. The game mode is ' + selectedValue);
-        alert('The start new game is clicked. The game mode is ' + selectedValue);
+        // console.log('The start new game is clicked. The game mode is ' + selectedValue);
+        // alert('The start new game is clicked. The game mode is ' + selectedValue);
 
-        console.log('Selected mode attribute value: ' + component.get('v.selectedMode'));
+        // console.log('Selected mode attribute value: ' + component.get('v.selectedMode'));
     },
 
     reshuffleBoard : function(component, event, helper) {
-        // Access the aura:id of reshuffle button
-        let reshuffle = component.find('reshuffle');
+        // // Access the aura:id of reshuffle button
+        // let reshuffle = component.find('reshuffle');
 
-        // Gets the value of reshuffle component
-        let selectedValue = reshuffle.get('v.value');
+        // // Gets the value of reshuffle component
+        // let selectedValue = reshuffle.get('v.value');
         
         console.log('The reshuffle button is clicked');
     }

@@ -1,0 +1,4 @@
+<!-- Event handler when a block is clicked -->
+<aura:event type="COMPONENT" description="Event template">
+    <aura:attribute name="value" type="String" />
+</aura:event>

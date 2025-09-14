@@ -24,7 +24,29 @@
         component.set('v.winWord', winWord);
         console.log('Win Word: ' + winWord);
     },
+
     doRender : function(component, event, helper) {
         console.log('doRender called');
+    },
+
+    blockClickHandler : function(component, event, helper) {
+        // Click counter
+        let clickCount = component.get('v.clickCount') + 1;
+
+        // Get event value from BlockClickEvent.evt
+        const value = event.getParam('value');
+
+        // Checks if the user's picked word is the winning word
+        if (value === component.get('v.winWord')) {
+            // User wins when winning word is picked
+            component.set('v.result', 'YOU WIN!');
+            console.log('YOU WIN!');
+        } else if (clickCount === 3) {
+            // User loses when all clicks are used up
+            component.set('v.result', 'YOU LOSE!');
+            console.log('YOU LOSE!');
+        }
+        // Tracks the number of clicks
+        component.set('v.clickCount', clickCount);
     }
 })
