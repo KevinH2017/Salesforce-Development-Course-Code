@@ -1,7 +1,10 @@
 <aura:component implements="flexipage:availableForAllPageTypes">
+    <!-- Attributes are like variables, initialized with their name and data type -->
+    <aura:attribute name="mode" type="String" default="easy" />
     <aura:attribute name="words" type="List" access="private" />
     <aura:attribute name="winWord" type="String" access="private" />
     <aura:attribute name="clickCount" type="Integer" default="0" access="private" />
+    <aura:attribute name="blockSize" type="Integer" access="private" />
 
     <!-- Accesses JavaScript files to initialize and render page -->
     <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
@@ -25,13 +28,10 @@
     
         <!-- Automatically spaces out rows to a size total of 12 in each row -->
         <lightning:layout multipleRows="true">
-            <lightning:layoutItem size="4" padding="around-small"> 1 </lightning:layoutItem>
-            <lightning:layoutItem size="4" padding="around-small"> 2 </lightning:layoutItem>
-            <lightning:layoutItem size="4" padding="around-small"> 3 </lightning:layoutItem>
-            <lightning:layoutItem size="4" padding="around-small"> 4 </lightning:layoutItem>
-            <lightning:layoutItem size="4" padding="around-small"> 5 </lightning:layoutItem>
-            <lightning:layoutItem size="4" padding="around-small"> 6 </lightning:layoutItem>
-            <lightning:layoutItem size="4" padding="around-small"> 7 </lightning:layoutItem>
+            <!-- Loops and creates columns and rows of random words -->
+            <aura:iteration items="{!v.words}" var="word">
+                <lightning:layoutItem size="{!v.blockSize}" padding="around-small"> {!word} </lightning:layoutItem>
+            </aura:iteration>
         </lightning:layout>
     </div>
 </aura:component>

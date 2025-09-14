@@ -50,6 +50,6 @@
         <!-- Bound expression:
             Only changes from JS and HTML occur one way 
             (HTML changes affect JS, then JS changes won't appear on HTML, and vice versa) -->
-        <p>Selected mode is: {#v.selectedMode}</p>
+        <!-- <p>Selected mode is: {#v.selectedMode}</p> -->
     </lightning:card>
 </aura:component>
