@@ -41,10 +41,12 @@
             // User wins when winning word is picked
             component.set('v.result', 'YOU WIN!');
             console.log('YOU WIN!');
+            helper.disableBoard(component);
         } else if (clickCount === 3) {
             // User loses when all clicks are used up
             component.set('v.result', 'YOU LOSE!');
             console.log('YOU LOSE!');
+            helper.disableBoard(component);
         }
         // Tracks the number of clicks
         component.set('v.clickCount', clickCount);

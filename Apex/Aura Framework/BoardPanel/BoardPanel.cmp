@@ -10,8 +10,11 @@
     {'label': 'Hard', 'value': 'hard'},
     ]"
     />
+    
     <aura:attribute name="selectedMode" type="String" />
+    
     <lightning:card title="Word Shuffle">
+
         <!-- Layout for items -->
         <lightning:layout horizontalAlign="center" multipleRows="true">
             <!-- Lightning layout must have total size be equal to 12, if no value it will automatically space the items -->
