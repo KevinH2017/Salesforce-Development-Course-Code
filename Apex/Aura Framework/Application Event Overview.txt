@@ -1,0 +1,50 @@
+Aura Communication
+
+Components:
+
+    BoardPanel
+        Board
+            Block
+            
+-------------------------
+
+    GameResult
+
+
+How to communicate between components:
+
+Component 1:    Component 2:    Communication:
+
+BoardPanel      Board           Public Attribute / Aura method / Application Event
+
+Board           Block           Public Attribute / Aura Method / Application Event
+
+Block           Board           Component Event / Application Event
+
+Block           BoardPanel      Component Event / Application Event
+
+Board           BoardPanel      Component Event / Application Event
+
+Board           GameResult      Application Event
+
+GameResult      BoardPanel      Application Event
+
+
+Application Event:
+
+An application event can be handled by any aura component regardless of the component hierarchy
+Components should be on the same page
+
+
+Fire Application Event Example:
+
+const appEvent = $A.get("e.c:appEvent");
+
+appEvent.setParams({"myParam" : myValue});
+
+appEvent.fire();
+
+
+Handle Application Event Example:
+
+<aura:handler event="c:appEvent" action="{!c.handleApplicationEvent}" />
