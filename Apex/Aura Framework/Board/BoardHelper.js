@@ -108,8 +108,13 @@
             // Randomize the words
             wordsArray = this.randomizeArray(wordsArray);
 
+            // open = false property
+            const wordObjectArray = wordsArray.map(element => {
+                return {word : element, open : false};
+            });
+
             // Returns requested number of words from the array
-            return wordsArray.slice(0, count);
+            return wordObjectArray.slice(0, count);
     },
 
     randomizeArray : function(arr) {
@@ -125,9 +130,9 @@
     },
 
     getWinWord : function(arr) {
-        // Randomly selects a word from the array as the winning word
+        // Randomly selects a word from the object as the winning word
         const randomIndex = Math.floor(Math.random() * arr.length);
-        return arr[randomIndex];
+        return arr[randomIndex].word;
     },
 
     disableBoard : function(component) {
@@ -149,11 +154,11 @@
         component.set('v.result', '');
     },
 
-    fireResultEvent : function(component, resultValue) {
+    fireResultEvent : function (resultValue) {
         // Fires the result event and sends the result value to ResultEvent.evt
-        const appEvent = $A.get('e.c:ResultApplicationEvent');
-        appEvent.setParams({result:resultValue});
-        appEvent.fire();
+        const appevent = $A.get("e.c:ResultApplicationEvent");
+        appevent.setParams({ result: resultValue });
+        appevent.fire();
     }
 
 })

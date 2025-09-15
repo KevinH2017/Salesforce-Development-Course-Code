@@ -1,4 +1,4 @@
-<aura:component implements="flexipage:availableForAllPageTypes">
+<aura:component implements="flexipage:availableForAllPageTypes" controller="BoardPanelController">
     <!-- aura:attribute must be outside of lightning:card -->
     <!-- List attributes with labels and values -->
     <aura:attribute
@@ -12,14 +12,11 @@
     />
     
     <aura:attribute name="selectedMode" type="String" />
-
     <aura:attribute name="reshuffleDisabled" type="Boolean" default="true" />
 
     <aura:handler event="c:ResultApplicationEvent" action="{!c.onResultHandler}" />
     
     <lightning:card title="Word Shuffle">
-
-        <!-- Layout for items -->
         <lightning:layout horizontalAlign="center" multipleRows="true">
             <!-- Lightning layout must have total size be equal to 12, if no value it will automatically space the items -->
             <lightning:layoutItem padding="around-small">

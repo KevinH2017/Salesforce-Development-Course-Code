@@ -1,6 +1,6 @@
 <aura:component implements="flexipage:availableForAllPageTypes">
     <!-- Attributes are like variables, initialized with their name, data type, and access level of what files can access them -->
-    <aura:attribute name="mode" type="String" default="easy" />
+    <aura:attribute name="mode" type="String" default="hard" />
     <aura:attribute name="words" type="List" access="private" />
     <aura:attribute name="winWord" type="String" access="private" />
     <aura:attribute name="clickCount" type="Integer" default="0" access="private" />
@@ -14,7 +14,7 @@
     <!-- Method to start a new game -->
     <aura:method name="startGame" action="{!c.doInit}" description="Start new game"></aura:method>
     <!-- Method to reshuffle the board -->
-    <aura:method name="reshuffleBoard" action="{!c.reshuffleBoard}" description="Reshuffle Board"> </aura:method>
+    <aura:method name="reshuffleBoard" action="{!c.reshuffleBoard}" description="Reshuffles the board"></aura:method>
 
     <div class="board">
         <!-- Automatically spaces out rows to a size total of 12 in each row -->
@@ -36,9 +36,10 @@
 
         <lightning:layout multipleRows="true">
             <!-- Loops and creates columns and rows of random words -->
-            <aura:iteration items="{!v.words}" var="word">
+            <aura:iteration items="{!v.words}" var="wordObj">
                 <lightning:layoutItem size="{!v.blockSize}" padding="around-small">
-                    <c:Block label="{!word}" onclick="{!c.blockClickHandler}"></c:Block>
+                    <!-- Label gets the wordObj's word value -->
+                    <c:Block label="{!wordObj.word}" open="{!wordObj.open}" onclick="{!c.blockClickHandler}"></c:Block>
                 </lightning:layoutItem>
             </aura:iteration>
         </lightning:layout>

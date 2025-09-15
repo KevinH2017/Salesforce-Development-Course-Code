@@ -45,7 +45,7 @@
             component.set('v.result', 'YOU WIN!');
             console.log('YOU WIN!');
             helper.disableBoard(component);
-            helper.fireResultEvent('win');;
+            helper.fireResultEvent('win');
         } else if (clickCount === 3) {
             // User loses when all clicks are used up
             component.set('v.result', 'YOU LOSE!');
@@ -55,5 +55,14 @@
         }
         // Tracks the number of clicks
         component.set('v.clickCount', clickCount);
+    },
+
+    reshuffleBoard : function(component, event, helper) {
+        // Reshuffles the board and randomizes words
+        const words = component.get('v.words');
+        const randomizeWords = helper.randomizeArray(words);
+        component.set('v.words', randomizeWords);
+        // Resets board for new game
+        helper.resetBoard(component);
     }
 })

@@ -23,7 +23,11 @@
     },
 
     reshuffleBoard : function(component, event, helper) {
-        console.log('The reshuffle button is clicked');
+        // Reshuffles the board and randomizes words
+        const boardComp = component.find('boardComp');
+        boardComp.reshuffleBoard();
+        // Disable the reshuffle button after reshuffling
+        component.set('v.reshuffleDisabled', true);
     },
 
     onResultHandler : function(component, event, helper) {
@@ -34,5 +38,6 @@
         } else {
             component.set('v.reshuffleDisabled', false);
         }
+        helper.addResultRecord(component, result);
     }
 });
