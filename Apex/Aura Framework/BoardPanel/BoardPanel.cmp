@@ -12,6 +12,10 @@
     />
     
     <aura:attribute name="selectedMode" type="String" />
+
+    <aura:attribute name="reshuffleDisabled" type="Boolean" default="true" />
+
+    <aura:handler event="c:ResultApplicationEvent" action="{!c.onResultHandler}" />
     
     <lightning:card title="Word Shuffle">
 
@@ -35,13 +39,15 @@
                     aura:id="startNewGameButton" 
                     variant="brand" 
                     label="Start New Game" 
-                    title="Start New Game" onclick="{!c.startGame}" />
+                    title="Start New Game"
+                    onclick="{!c.startGame}" />
             </lightning:layoutItem>
             <lightning:layoutItem padding="around-small">
                 <lightning:button 
                     aura:id="reshuffleButton" 
                     label="Reshuffle" 
                     title="Reshuffle" 
+                    disabled="{!v.reshuffleDisabled}"
                     onclick="{!c.reshuffleBoard}" />
             </lightning:layoutItem>
 
@@ -49,10 +55,7 @@
             <aura:if isTrue="{! (v.selectedMode) != null}">
                 <lightning:layoutItem size="12">
                     <!-- Sets mode variable in Board.cmp to selectedMode variable -->
-                    <c:Board mode="{!v.selectedMode}"></c:Board>
-
-                    <!-- Will display if selectedMode is null -->
-                    <!-- <aura:set attribute="else">else part</aura:set> -->
+                    <c:Board aura:id="boardComp" mode="{!v.selectedMode}"></c:Board>
                 </lightning:layoutItem>
             </aura:if>
 

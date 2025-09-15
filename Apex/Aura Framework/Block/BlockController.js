@@ -1,5 +1,5 @@
 ({
-    blockClickHandler : function (component, event, helper) {
+    blockClickHandler : function(component, event, helper) {
         const open = component.get("v.open");
         if (!open) {
             component.set("v.open", true);
@@ -10,5 +10,10 @@
             compEvent.setParams({value:label});
             compEvent.fire();
         }
+    },
+
+    scriptsLoaded : function(component, event, helper) {
+        const divElement = component.getElement('.board-block');
+        fitText(divElement);
     }
 });

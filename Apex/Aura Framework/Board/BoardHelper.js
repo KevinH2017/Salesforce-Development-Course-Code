@@ -125,6 +125,7 @@
     },
 
     getWinWord : function(arr) {
+        // Randomly selects a word from the array as the winning word
         const randomIndex = Math.floor(Math.random() * arr.length);
         return arr[randomIndex];
     },
@@ -135,5 +136,24 @@
 
     enableBoard : function(component) {
         component.set('v.boardDisabled', false);
+    },
+
+    resetBoard : function(component) {
+        // Re-enables board for new game
+        this.enableBoard(component);
+
+        // Reset click counter
+        component.set('v.clickCount', 0);
+        
+        // Reset result
+        component.set('v.result', '');
+    },
+
+    fireResultEvent : function(component, resultValue) {
+        // Fires the result event and sends the result value to ResultEvent.evt
+        const appEvent = $A.get('e.c:ResultApplicationEvent');
+        appEvent.setParams({result:resultValue});
+        appEvent.fire();
     }
+
 })

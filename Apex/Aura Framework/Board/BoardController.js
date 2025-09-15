@@ -15,14 +15,17 @@
         // Size of each block
         let blockSize = 12/column;
         component.set('v.blockSize', blockSize);
+        
         // Builds list of 100 words
         const words = helper.getWords(column*column);
         component.set('v.words', words);
-        console.log("Words: " + words);
+
         // Gets the winning word
         const winWord = helper.getWinWord(words);
         component.set('v.winWord', winWord);
-        console.log('Win Word: ' + winWord);
+
+        // Resets the board
+        helper.resetBoard(component);
     },
 
     doRender : function(component, event, helper) {
@@ -42,11 +45,13 @@
             component.set('v.result', 'YOU WIN!');
             console.log('YOU WIN!');
             helper.disableBoard(component);
+            helper.fireResultEvent('win');;
         } else if (clickCount === 3) {
             // User loses when all clicks are used up
             component.set('v.result', 'YOU LOSE!');
             console.log('YOU LOSE!');
             helper.disableBoard(component);
+            helper.fireResultEvent('lose');
         }
         // Tracks the number of clicks
         component.set('v.clickCount', clickCount);

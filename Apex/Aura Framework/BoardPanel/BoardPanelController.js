@@ -8,21 +8,31 @@
         // Gets the value of combobox component
         let selectedValue = gameModeComboBox.get('v.value');
 
+        // Holds selected game mode
+        const selectedMode = component.get('v.selectedMode');
+
         // Update selectedMode attribute
         component.set('v.selectedMode', selectedValue);
-        // console.log('The start new game is clicked. The game mode is ' + selectedValue);
-        // alert('The start new game is clicked. The game mode is ' + selectedValue);
 
-        // console.log('Selected mode attribute value: ' + component.get('v.selectedMode'));
+        // If selectedMode is not null, call startGame() aura method in Board.cmp
+        if (selectedMode) {
+            const boardComp = component.find('boardComp');
+            // Call aura method
+            boardComp.startGame();
+        }
     },
 
     reshuffleBoard : function(component, event, helper) {
-        // // Access the aura:id of reshuffle button
-        // let reshuffle = component.find('reshuffle');
-
-        // // Gets the value of reshuffle component
-        // let selectedValue = reshuffle.get('v.value');
-        
         console.log('The reshuffle button is clicked');
+    },
+
+    onResultHandler : function(component, event, helper) {
+        // If the player wins, disable the reshuffle button, else re-enable it
+        const result = event.getParam('result');
+        if (result === 'win') {
+            component.set('v.reshuffleDisabled', true);
+        } else {
+            component.set('v.reshuffleDisabled', false);
+        }
     }
 });
