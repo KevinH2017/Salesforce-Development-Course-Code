@@ -18,5 +18,16 @@
 
         // Call apex method
         $A.enqueueAction(action);
+    },
+    
+    showToast : function(titleValue, messageValue, typeValue) {
+        // Displays a message below the header
+        var toastEvent = $A.get("e.force:showToast");
+        toastEvent.setParams({
+            title : titleValue,
+            message : messageValue,
+            type : typeValue
+        });
+        toastEvent.fire();
     }
-});
+})

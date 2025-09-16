@@ -35,8 +35,12 @@
         const result = event.getParam('result');
         if (result === 'win') {
             component.set('v.reshuffleDisabled', true);
+            // Displays You Win message below the header
+            helper.showToast('You Win!', 'Congratulations!', 'success');
         } else {
             component.set('v.reshuffleDisabled', false);
+            // Displays You Lose message below the header
+            helper.showToast('You Lose!', 'Reshuffle the board to keep playing!', 'error');
         }
         helper.addResultRecord(component, result);
     }

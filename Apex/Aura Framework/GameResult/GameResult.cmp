@@ -1,0 +1,22 @@
+<aura:component controller="GameResultController" implements="flexipage:availableForAllPageTypes">
+    <!-- data and columns attributes -->
+    <aura:attribute name="data" type="Object"/>
+    <aura:attribute name="columns" type="List"/>
+
+    <!-- Initializes component -->
+    <aura:handler name="init" value="{!this }" action="{!c.doInit }"/>
+
+    <!-- Calls onResultHandler function in GameResultController.js to get previous results -->
+    <aura:handler event="c:ResultApplicationEvent" action="{!c.onResultHandler}" />
+
+    <!-- Card that hols all previous game results -->
+    <lightning:card title="Your Results">
+        <div class="slds-var-p-around_medium">
+            <lightning:datatable
+                    keyField="id"
+                    data="{!v.data }"
+                    columns="{!v.columns }"
+                    hideCheckboxColumn="true"/>
+        </div>
+    </lightning:card>
+</aura:component>
