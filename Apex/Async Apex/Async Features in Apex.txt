@@ -1,0 +1,21 @@
+Async Features:
+
+Future Methods:
+
+- Runs in their own thread, and does not start until resources are available
+- Commonly used in web service callouts
+
+Batch Apex:
+
+- Run large jobs that would exceed normal processing limits
+- Such as data cleansing or achiving of records
+
+Queueable Apex:
+
+- Similar to future methods, but provides additional job chaining and allowing more complex data types to be used
+- Used to perform sequential processing operations with external web services
+
+Scheduled Apex:
+
+- To schedule apex to run at a specified time
+- Like daily or weekly tasks
