@@ -2,6 +2,11 @@ Async Apex
 
 Apex code can run asycnhronously, meaning it doesn't have to wait for one process to finish in order to move to the next one
 
+Apex Jobs can be found in Setup --> Search --> Apex Jobs
+
+In the Setup it shows the Submitted Date, Job Type, Status, Status Details, Total Batches, Batches Processed,
+Failures, Submitted By, Completion Date, Apex Class, Apex Method, and Apex Job ID
+
 Example:
 
 Start Operation --> Process Starts --> Error Occurred --> Operation Ends
