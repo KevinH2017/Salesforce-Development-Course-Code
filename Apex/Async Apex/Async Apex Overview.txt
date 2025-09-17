@@ -1,0 +1,15 @@
+Async Apex
+
+Apex code can run asycnhronously, meaning it doesn't have to wait for one process to finish in order to move to the next one
+
+Example:
+
+Start Operation --> Process Starts --> Error Occurred --> Operation Ends
+                                            ---> When error occurs, send to error logging system instead of abruptly ending operation
+
+Advantages of Async Apex:
+
+- Runs in the background
+- Higher governor limits
+- Can be scheduled
+- Can process more number of records
