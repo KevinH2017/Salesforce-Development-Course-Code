@@ -10,7 +10,7 @@ Failures, Submitted By, Completion Date, Apex Class, Apex Method, and Apex Job I
 Example:
 
 Start Operation --> Process Starts --> Error Occurred --> Operation Ends
-                                            ---> When error occurs, send to error logging system instead of abruptly ending operation
+                                            OR ---> When error occurs, send to error logging system instead of abruptly ending operation
 
 Advantages of Async Apex:
 
