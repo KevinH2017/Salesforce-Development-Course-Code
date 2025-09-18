@@ -14,6 +14,8 @@ Queueable Apex:
 
 - Similar to future methods, but provides additional job chaining and allowing more complex data types to be used
 - Used to perform sequential processing operations with external web services
+- You can specify a delay in scheduling queueable jobs with a specified minimum delay (0-10 minutes)
+    - However, the delay is ignored during Apex testing
 
 Scheduled Apex:
 
