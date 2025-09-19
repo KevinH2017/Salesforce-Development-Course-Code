@@ -4,11 +4,14 @@ public with sharing class CTStatusUpdateSchedule implements Schedulable{
     public static final String CRON = '0 0 3 * * ?';
     
     /**
-     * Clean up batch job using CTUpdatePersonStatusBatch class
+     * Clean up batch job using CTUpdatePersonStatusBatch and CTLocationStatusUpdateBatch class
      * @param SchedulableContext SC
      */
     public void execute(SchedulableContext SC) {
         CTUpdatePersonStatusBatch personBatch = new CTUpdatePersonStatusBatch();
         Database.executeBatch(personBatch, 2000);
+
+        CTLocationStatusUpdateBatch locationBatch = new CTLocationStatusUpdateBatch();
+        Database.executeBatch(locationBatch, 2000);
     }
 }
