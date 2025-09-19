@@ -27,6 +27,7 @@ public class FibonacciDepthQueueable implements Queueable {
    
     private long nMinus1, nMinus2;
        
+    // Calculate Fibonacci sequence to a given depth
     public static void calculateFibonacciTo(integer depth) {
         AsyncOptions asyncOptions = new AsyncOptions();
         asyncOptions.MaximumQueueableStackDepth = depth;
