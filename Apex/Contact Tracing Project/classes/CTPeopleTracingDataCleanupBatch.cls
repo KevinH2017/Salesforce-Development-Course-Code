@@ -6,7 +6,6 @@ public with sharing class CTPeopleTracingDataCleanupBatch implements Database.Ba
      * @return Database.QueryLocator
      */
     public Database.QueryLocator start(Database.BatchableContext BC) {
-        // 
         return Database.getQueryLocator('SELECT Id FROM People_Tracing__c WHERE Contact_Date__c < LAST_N_DAYS : 30');
     }
 
