@@ -1,4 +1,4 @@
-public with sharing class CTPeopleTracingDataCleanupBatch implements Database.Batchable<SObject>{
+public with sharing class CTPeopleTracingDataCleanupBatch implements Database.Batchable<SObject> {
     
     /**
      * Return query for all people traces older than 30 days
