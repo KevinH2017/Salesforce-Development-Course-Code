@@ -17,6 +17,7 @@ CustomNotification allows two approaches to creating and configuring a custom no
 */
 
 // Get the Id for our custom notification type
+// Has to be an existing DeverloperName
 CustomNotificationType notificationType = [
                             SELECT Id, DeveloperName
                             FROM CustomNotificationType
