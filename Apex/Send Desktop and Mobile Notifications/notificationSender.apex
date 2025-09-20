@@ -24,7 +24,7 @@ CustomNotificationType notificationType = [
                             WHERE DeveloperName='enablement_coaching_feedback_ready'
                             ];
                             
-// Create a new custom notification
+// Create a new custom notification object
 Messaging.CustomNotification notification = new Messaging.CustomNotification();
 
 // Set the contents for the notification
