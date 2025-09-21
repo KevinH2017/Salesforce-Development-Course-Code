@@ -33,7 +33,7 @@ public with sharing class AccountTriggerHandler {
         /* Using insert as user, an error will be thrown if not given enough access:
             System.DmlException: Operation failed due to fields being inaccessible on Sobject Opportunity, 
             check errors on Exception or Result! */
-        // insert as user oppsToInser;
+        // insert as user oppsToInsert;
         
 
         /* If not given enough access, AccessLevel.USER_MODE will throw an exception:
