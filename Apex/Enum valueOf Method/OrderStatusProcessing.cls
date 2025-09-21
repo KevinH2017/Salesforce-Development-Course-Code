@@ -28,7 +28,7 @@ public with sharing class OrderStatusProcessing {
         // for (OrderStatus os : OrderStatus.values()) {
         //     if (os.name() == status) {
         //         // Code to process the order status goes here
-        //         System.debug('os: ' + os);
+        //         System.debug('Order Status: ' + os);
         //     }
         // }
 
