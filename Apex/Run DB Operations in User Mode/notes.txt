@@ -1,0 +1,20 @@
+Secure Apex Code with User Mode Database Operations
+
+Apex runs in system mode by default, which means that it runs with substantially elevated privilages
+over the user running the code
+
+To enhance the security of Apex, you can specify user mode access for database operations
+Field-level secuirty (FLS) and object permissions of the running user are respected in
+user mode, unlike system mode
+
+Examples:
+
+SOQL:
+List<Account> acc = [SELECT Id FROM Account WITH USER_MODE];
+
+DML:
+Account acc = new Account(Name = 'Test Account');
+insert as user acc;
+
+Database Methods:
+Database.query(query, AccessLevel.USER_MODE);
