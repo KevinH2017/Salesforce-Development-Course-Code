@@ -22,7 +22,7 @@ START:
         - If the request is from a User object on a standard UI edit page, Salesforce runs custom validation rules:
             - For requests from multiline item creation such as quote line items and opportunity line items, Salesforce runs custom validation rules
             - For requests from other sources such as an Apex application or a SOAP API call, Salesforce validates foreign keys, field formats,
-            maximum field legnths, and restricted picklists. Before executing a trigger, Salesforce verifies that any custom foreign keys don't
+            maximum field lengths, and restricted picklists. Before executing a trigger, Salesforce verifies that any custom foreign keys don't
             refer to the object itself
 
 3. Executes record-triggered flows that are configured to run before the record is saved
