@@ -39,7 +39,7 @@ START:
 7. Saves the record to the database, but doesn't commit yet
 
 8. Executes all 'after' triggers
-    - If this is not a recursive save, skip steps 9 - 17
+    - If this is a recursive save, skip steps 9 - 17
 
 9. Executes assignment rules
 
