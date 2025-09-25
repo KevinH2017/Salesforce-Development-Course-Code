@@ -46,7 +46,7 @@ START:
 10. Executes auto-response rules
 
 11. Executes workflow rules. If there are workflow field updates:
-    - This sequence only applies to workflow rules:
+    - This sequence ONLY applies to workflow rules:
         - Updates the record again
         - Runs system validations again. Custom validation rules, flows, duplicate rules, processes build with
             Process Builder, and escalation rules aren't run again
@@ -64,6 +64,7 @@ START:
 14. Executes record-triggered flows that are configured to run after the record is saved
 
 15. Executes entitlement rules
+    - If the record does not contain roll-up summary fields, skip to 18
 
 16. If the record contains a roll-up summary field or is part of a cross-object workflow, performs calcuations and updates
     the roll-up summary field in the parent record. Parent record goes through save procedure
