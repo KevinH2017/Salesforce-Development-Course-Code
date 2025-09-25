@@ -1,3 +1,11 @@
+/*
+External Services connect your Salesforce org to a service outside of Salesforce, such as an employee banking service
+
+After you register the external service, you can call it natively in your Apex code
+
+Code below provided by SFDCFacts Academy
+Link: https://github.com/choudharymanish8585/Apex-Development-Course/tree/main/Release%20Updates/Summer%2022
+*/
 public with sharing class SFDCFactsAcademyService {
 
     // Gets all courses by calling /courses api
