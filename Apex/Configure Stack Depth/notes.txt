@@ -1,0 +1,24 @@
+Configure Stack Depth of Chained Queueable Jobs Notes:
+
+You can set a maximum stack depth of Queueable jobs, overriding the default limit of five
+
+This feature provides a larger safety mechanism to prevent run-away recursive jobs from consuming daily Async Apex limit
+
+The methods in the System.AsyncInfo class helps determine the current and maximum stack depths and the
+minimum queueable delay:
+
+    getCurrentQueueableStackDepth()
+        - Get the current queueable stack depth for queueable transactions
+        - Returns Integer
+
+    getMaximumQueueableStackDepth()
+        - Get the maximum queueable stack depth for queueable transactions
+        - Returns Integer
+
+    getMinimumQueueableDelayInMinutes()
+        - Get the minimum queueable delay for queueable transactions (in minutes)
+        - Returns Integer or null if no delay is defined
+
+    hasMaxStackDepth()
+        - Determine if maximum stack depth is set for your queueable requests
+        - Returns Boolean
