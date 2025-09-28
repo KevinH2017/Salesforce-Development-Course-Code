@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Stylesheet path file relative to index.html -->
+    <link rel="stylesheet" type="text/css"
+        href="salesforce-lightning-design-system-static-resource-2.28.0\styles\salesforce-lightning-design-system.min.css">
+    <title>TEST</title>
+</head>
+
+<body>
+    <div class="slds-text-heading_large slds-text-align_center slds-border_bottom">Test Page</div>
+
+    <div class="slds-grid slds-wrap slds-grid_align-center slds-grid_vertical-align-center" style="height: 100vh;">
+        <div class="slds-form-element" role="group" aria-labelledby="picklist-group-label">
+            <span id="picklist-group-label" class="slds-form-element__label slds-form-element__legend">Select
+                Options</span>
+            <div class="slds-form-element__control">
+                <div class="slds-dueling-list">
+                    <div class="slds-assistive-text" id="drag-live-region" aria-live="assertive"></div>
+                    <div class="slds-assistive-text" id="option-drag-label">Press space bar when on an item, to move it
+                        within the list. Cmd/Ctrl plus left and right arrow keys, to move items between lists.</div>
+                    <div class="slds-dueling-list__column slds-dueling-list__column_responsive">
+                        <span class="slds-form-element__label" id="label-101">Available Languages</span>
+                        <div class="slds-dueling-list__options">
+                            <ul aria-describedby="option-drag-label" aria-labelledby="label-101"
+                                aria-multiselectable="true" class="slds-listbox slds-listbox_vertical" role="listbox">
+                                <li role="presentation" class="slds-listbox__item">
+                                    <div class="slds-listbox__option slds-listbox__option_plain slds-media slds-media_small slds-media_inline"
+                                        aria-selected="false" draggable="true" role="option" tabindex="0">
+                                        <span class="slds-media__body">
+                                            <span class="slds-truncate" title="Arabic">Arabic</span>
+                                        </span>
+                                    </div>
+                                </li>
+                                <li role="presentation" class="slds-listbox__item">
+                                    <div class="slds-listbox__option slds-listbox__option_plain slds-media slds-media_small slds-media_inline"
+                                        aria-selected="false" draggable="true" role="option" tabindex="-1">
+                                        <span class="slds-media__body">
+                                            <span class="slds-truncate" title="Dutch">Dutch</span>
+                                        </span>
+                                    </div>
+                                </li>
+                                <li role="presentation" class="slds-listbox__item">
+                                    <div class="slds-listbox__option slds-listbox__option_plain slds-media slds-media_small slds-media_inline"
+                                        aria-selected="false" draggable="true" role="option" tabindex="-1">
+                                        <span class="slds-media__body">
+                                            <span class="slds-truncate" title="German">German</span>
+                                        </span>
+                                    </div>
+                                </li>
+                                <li role="presentation" class="slds-listbox__item">
+                                    <div class="slds-listbox__option slds-listbox__option_plain slds-media slds-media_small slds-media_inline"
+                                        aria-selected="false" draggable="true" role="option" tabindex="-1">
+                                        <span class="slds-media__body">
+                                            <span class="slds-truncate" title="Hindi">Hindi</span>
+                                        </span>
+                                    </div>
+                                </li>
+                                <li role="presentation" class="slds-listbox__item">
+                                    <div class="slds-listbox__option slds-listbox__option_plain slds-media slds-media_small slds-media_inline"
+                                        aria-selected="false" draggable="true" role="option" tabindex="-1">
+                                        <span class="slds-media__body">
+                                            <span class="slds-truncate" title="Tobagonian Creole English">Tobagonian
+                                                Creole English</span>
+                                        </span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="slds-dueling-list__column">
+                        <button class="slds-button slds-button_icon slds-button_icon-container"
+                            title="Move Selection to Selected Languages">
+                            <svg class="slds-button__icon" aria-hidden="true">
+                                <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#right"></use>
+                            </svg>
+                            <span class="slds-assistive-text">Move Selection to Selected Languages</span>
+                        </button>
+                        <button class="slds-button slds-button_icon slds-button_icon-container"
+                            title="Move Selection to Available Languages">
+                            <svg class="slds-button__icon" aria-hidden="true">
+                                <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#left"></use>
+                            </svg>
+                            <span class="slds-assistive-text">Move Selection to Available Languages</span>
+                        </button>
+                    </div>
+                    <div class="slds-dueling-list__column slds-dueling-list__column_responsive">
+                        <span class="slds-form-element__label" id="label-102">Selected Languages</span>
+                        <div class="slds-dueling-list__options">
+                            <ul aria-describedby="option-drag-label" aria-labelledby="label-102"
+                                aria-multiselectable="true" class="slds-listbox slds-listbox_vertical" role="listbox">
+                                <li role="presentation" class="slds-listbox__item">
+                                    <div class="slds-listbox__option slds-listbox__option_plain slds-media slds-media_small slds-media_inline"
+                                        aria-selected="false" draggable="true" role="option" tabindex="0">
+                                        <span class="slds-media__body">
+                                            <span class="slds-truncate" title="Chinese">Chinese</span>
+                                        </span>
+                                    </div>
+                                </li>
+                                <li role="presentation" class="slds-listbox__item">
+                                    <div class="slds-listbox__option slds-listbox__option_plain slds-media slds-media_small slds-media_inline"
+                                        aria-selected="false" draggable="true" role="option" tabindex="-1">
+                                        <span class="slds-media__body">
+                                            <span class="slds-truncate" title="English">English</span>
+                                        </span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Creates a grid of 12 units wide in each row (if not specified, will automatically space items to 12 total units in each row equally) -->
+    <!-- slds-wrap allows objects to move to the next row when the window expands and shrinks -->
+    <div class="slds-grid slds-wrap slds-grid_align-spread">
+        <!-- Columns with margins and padding -->
+        <!-- slds-size_X-of-12 determines how many units the object will use, X being 1 to 12 -->
+        <!-- slds-large, medium, small determines how many units when the window is large, medium, or small -->
+        <div class="slds-col 
+                    slds-m-around_xx-small 
+                    slds-p-around_small 
+                    slds-large-size_1-of-12 
+                    slds-medium-size_8-of-12 
+                    slds-small-size_12-of-12" style="height: 4rem; background: palegreen">First Item
+        </div>
+        <div class="slds-col 
+                    slds-m-around_xx-small 
+                    slds-p-around_small                    
+                    slds-large-size_1-of-12 
+                    slds-medium-size_8-of-12 
+                    slds-small-size_12-of-12" style="height: 4rem; background: lightblue">Second Item
+        </div>
+        <div class="slds-col 
+                    slds-m-around_xx-small 
+                    slds-p-around_small                    
+                    slds-large-size_1-of-12 
+                    slds-medium-size_8-of-12 
+                    slds-small-size_12-of-12" style="height: 4rem; background: palegreen">Third Item
+        </div>
+        <div class="slds-col 
+                    slds-m-around_xx-small 
+                    slds-p-around_small
+                    slds-large-size_1-of-12 
+                    slds-medium-size_8-of-12 
+                    slds-small-size_12-of-12" style="height: 4rem; background: red">Fourth Item
+        </div>
+        <div class="slds-col 
+                    slds-m-around_xx-small 
+                    slds-p-around_small
+                    slds-large-size_1-of-12 
+                    slds-medium-size_8-of-12 
+                    slds-small-size_12-of-12" style="height: 4rem; background: palegreen">Fifth Item
+        </div>
+        <div class="slds-col 
+                    slds-m-around_xx-small 
+                    slds-p-around_small
+                    slds-large-size_1-of-12 
+                    slds-medium-size_8-of-12 
+                    slds-small-size_12-of-12" style="height: 4rem; background: lightblue">Sixth Item
+        </div>
+        <div class="slds-col 
+                    slds-m-around_xx-small 
+                    slds-p-around_small 
+                    slds-large-size_4-of-12
+                    slds-large-size_1-of-12 
+                    slds-medium-size_8-of-12 
+                    slds-small-size_12-of-12" style="height: 4rem; background: palegreen">Seventh Item
+        </div>
+        <div class="slds-col 
+                    slds-m-around_xx-small 
+                    slds-p-around_small 
+                    slds-large-size_1-of-12 
+                    slds-medium-size_8-of-12 
+                    slds-small-size_12-of-12" style="height: 4rem; background: lightyellow">Eighth Item
+        </div>
+        <div class="slds-col 
+                    slds-m-around_xx-small 
+                    slds-p-around_small " style="height: 4rem; background: palegreen">First Item
+        </div>
+        <div class="slds-col 
+                    slds-m-around_xx-small 
+                    slds-p-around_small" style="height: 4rem; background: palegreen">First Item
+        </div>
+        <div class="slds-col 
+                    slds-m-around_xx-small 
+                    slds-p-around_small" style="height: 4rem; background: palegreen">First Item
+        </div>
+        <div class="slds-col 
+                    slds-m-around_xx-small 
+                    slds-p-around_small" style="height: 4rem; background: palegreen">First Item
+        </div>
+    </div>
+
+    <div class="slds-grid slds-wrap slds-grid_align-space">
+        <div class="slds-col 
+                    slds-m-around_xx-small 
+                    slds-p-around_small" style="height: 4rem; background: palegreen">First Item
+        </div>
+        <div class="slds-col 
+                    slds-m-around_xx-small 
+                    slds-p-around_small" style="height: 4rem; background: palegreen">First Item
+        </div>
+    </div>
+
+    <div class="slds-grid slds-wrap slds-grid_align-spread">
+        <div class="slds-row 
+                    slds-m-around_xx-small 
+                    slds-p-around_small" style="height: 4rem; background: teal">First Item
+        </div>
+        <div class="slds-row 
+                    slds-m-around_xx-small 
+                    slds-p-around_small" style="height: 4rem; background: teal">First Item
+        </div>
+    </div>
+
+    <div class="slds-grid_vertical slds-wrap slds-grid_align-spread">
+        <div class="slds-row 
+                    slds-m-around_xx-small 
+                    slds-p-around_small" style="height: 4rem; background: crimson">First Item
+        </div>
+        <div class="slds-row 
+                    slds-m-around_xx-small 
+                    slds-p-around_small" style="height: 4rem; background: crimson">First Item
+        </div>
+    </div>
+
+    <div class="slds-m-around_medium slds-p-around_medium" style="height:8rem; background: orange;">This is a div</div>
+    <div class="slds-m-around_medium slds-p-around_medium" style="height:8rem; background: orange;">This is another div</div>
+    <div class="slds-m-around_medium slds-p-around_medium" style="height:8rem; background: orange;">This is the third div</div>
+
+</body>
+
+</html>

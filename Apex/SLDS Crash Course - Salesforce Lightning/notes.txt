@@ -1,0 +1,44 @@
+What is SLDS (Salesforce Lightning Design System)?
+
+- Front-end CSS framework for UIs
+
+- Pure CSS Framework (no JavaScript)
+
+- Responsive websites
+
+- Built primarly for Salesforce Apps, but can practically be used with any other framework or web application
+
+Why use SLDS?
+
+- Faster development
+
+- Responsive design out of the box
+
+- Consistent websites
+
+- Pre-built components
+
+SLDS Components:
+
+- Accordion
+- Alert
+- Button
+- Button Group
+- Card
+- Chat
+- Combobox
+- Data Picker
+- Data Table
+- Header
+- Path
+- Picklist
+- Tabs
+- Slider
+- Toast
+- Tree
+
+Documentation for SLDS 1: https://v1.lightningdesignsystem.com/
+
+Documentation for SLDS 2 (Does not contain code examples): https://www.lightningdesignsystem.com/2e1ef8501/p/85bd85-lightning-design-system-2
+
+GitHub: https://github.com/salesforce-ux/design-system
