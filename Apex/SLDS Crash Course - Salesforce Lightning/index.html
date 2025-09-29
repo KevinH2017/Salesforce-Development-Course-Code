@@ -4,238 +4,298 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Stylesheet path file relative to index.html -->
+    <!-- Stylesheet path file relative to html file -->
     <link rel="stylesheet" type="text/css"
         href="salesforce-lightning-design-system-static-resource-2.28.0\styles\salesforce-lightning-design-system.min.css">
-    <title>TEST</title>
+    <title>SLDS</title>
+    <style>
+        .img-heading {
+            top: 150px;
+            left: 50px;
+            color: lightgray;
+            width: 300px;
+            font-size: 2rem;
+        }
+
+        .img1 {
+            height: 400px;
+            width: 100%;
+            object-fit: cover;
+        }
+    </style>
 </head>
-
 <body>
-    <div class="slds-text-heading_large slds-text-align_center slds-border_bottom">Test Page</div>
-
-    <div class="slds-grid slds-wrap slds-grid_align-center slds-grid_vertical-align-center" style="height: 100vh;">
-        <div class="slds-form-element" role="group" aria-labelledby="picklist-group-label">
-            <span id="picklist-group-label" class="slds-form-element__label slds-form-element__legend">Select
-                Options</span>
-            <div class="slds-form-element__control">
-                <div class="slds-dueling-list">
-                    <div class="slds-assistive-text" id="drag-live-region" aria-live="assertive"></div>
-                    <div class="slds-assistive-text" id="option-drag-label">Press space bar when on an item, to move it
-                        within the list. Cmd/Ctrl plus left and right arrow keys, to move items between lists.</div>
-                    <div class="slds-dueling-list__column slds-dueling-list__column_responsive">
-                        <span class="slds-form-element__label" id="label-101">Available Languages</span>
-                        <div class="slds-dueling-list__options">
-                            <ul aria-describedby="option-drag-label" aria-labelledby="label-101"
-                                aria-multiselectable="true" class="slds-listbox slds-listbox_vertical" role="listbox">
-                                <li role="presentation" class="slds-listbox__item">
-                                    <div class="slds-listbox__option slds-listbox__option_plain slds-media slds-media_small slds-media_inline"
-                                        aria-selected="false" draggable="true" role="option" tabindex="0">
-                                        <span class="slds-media__body">
-                                            <span class="slds-truncate" title="Arabic">Arabic</span>
-                                        </span>
+    <div class="slds-container_large slds-container_center">
+        <div class="slds-grid_vertical" id="home">
+            <!-- Top navigation bar -->
+            <ul class="
+                    slds-box
+                    slds-col
+                    slds-list_horizontal 
+                    slds-has-block-links_space 
+                    slds-text-title_caps
+                    slds-border_bottom
+                    slds-m-bottom_large">
+                <li>
+                    <a href="#home">Home</a>
+                </li>
+                <li>
+                    <a href="#about-us">About Us</a>
+                </li>
+                <li>
+                    <a href="#contact-us">Contact Us</a>
+                </li>
+            </ul>
+            <!-- Header and banner -->
+            <div class="slds-col slds-is-relative">
+                <img class="img1" src="./lamp.jpg" alt="lamp">
+                <div class="slds-is-absolute img-heading">
+                    This is my SLDS website
+                    <p class="slds-text-heading_small slds-m-top_medium">
+                        Welcome! This is a test website to showcase my SLDS skills. Thank you for visiting!
+                    </p>
+                </div>
+            </div>
+            </div>
+            <!-- About Us -->
+            <div class="slds-col slds-is-relative">
+                <div class="slds-m-vertical_medium slds-text-align_center">
+                    <h1 style="font-size:2rem;" id="about-us">About Us</h1>
+                </div>
+            </div>
+            <!-- Product Grid -->
+            <div class="slds-grid slds-wrap">
+                <div class="
+                slds-col
+                slds-p-around_medium
+                slds-large-size_3-of-12
+                slds-medium-size_6-of-12
+                slds-small-size_12-of12">
+                    <article class="slds-card">
+                        <div class="slds-grid slds-einstein-header slds-card__header">
+                            <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                                <div class="
+                                    slds-grid 
+                                    slds-grid_vertical-align-center 
+                                    slds-size_3-of-4 
+                                    slds-medium-size_2-of-3">
+                                    <div class="slds-media__body">
+                                        <h2 class="slds-truncate" title="Product 1">
+                                            <a href="#" class="slds-card__header-link" title="Product 1">
+                                                <span class="slds-text-heading_small">Product 1</span>
+                                            </a>
+                                        </h2>
                                     </div>
-                                </li>
-                                <li role="presentation" class="slds-listbox__item">
-                                    <div class="slds-listbox__option slds-listbox__option_plain slds-media slds-media_small slds-media_inline"
-                                        aria-selected="false" draggable="true" role="option" tabindex="-1">
-                                        <span class="slds-media__body">
-                                            <span class="slds-truncate" title="Dutch">Dutch</span>
-                                        </span>
-                                    </div>
-                                </li>
-                                <li role="presentation" class="slds-listbox__item">
-                                    <div class="slds-listbox__option slds-listbox__option_plain slds-media slds-media_small slds-media_inline"
-                                        aria-selected="false" draggable="true" role="option" tabindex="-1">
-                                        <span class="slds-media__body">
-                                            <span class="slds-truncate" title="German">German</span>
-                                        </span>
-                                    </div>
-                                </li>
-                                <li role="presentation" class="slds-listbox__item">
-                                    <div class="slds-listbox__option slds-listbox__option_plain slds-media slds-media_small slds-media_inline"
-                                        aria-selected="false" draggable="true" role="option" tabindex="-1">
-                                        <span class="slds-media__body">
-                                            <span class="slds-truncate" title="Hindi">Hindi</span>
-                                        </span>
-                                    </div>
-                                </li>
-                                <li role="presentation" class="slds-listbox__item">
-                                    <div class="slds-listbox__option slds-listbox__option_plain slds-media slds-media_small slds-media_inline"
-                                        aria-selected="false" draggable="true" role="option" tabindex="-1">
-                                        <span class="slds-media__body">
-                                            <span class="slds-truncate" title="Tobagonian Creole English">Tobagonian
-                                                Creole English</span>
-                                        </span>
-                                    </div>
-                                </li>
-                            </ul>
+                                </div>
+                                <div class="slds-size_1-of-4 slds-medium-size_1-of-3">
+                                </div>
+                            </header>
                         </div>
-                    </div>
-                    <div class="slds-dueling-list__column">
-                        <button class="slds-button slds-button_icon slds-button_icon-container"
-                            title="Move Selection to Selected Languages">
-                            <svg class="slds-button__icon" aria-hidden="true">
-                                <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#right"></use>
-                            </svg>
-                            <span class="slds-assistive-text">Move Selection to Selected Languages</span>
-                        </button>
-                        <button class="slds-button slds-button_icon slds-button_icon-container"
-                            title="Move Selection to Available Languages">
-                            <svg class="slds-button__icon" aria-hidden="true">
-                                <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#left"></use>
-                            </svg>
-                            <span class="slds-assistive-text">Move Selection to Available Languages</span>
-                        </button>
-                    </div>
-                    <div class="slds-dueling-list__column slds-dueling-list__column_responsive">
-                        <span class="slds-form-element__label" id="label-102">Selected Languages</span>
-                        <div class="slds-dueling-list__options">
-                            <ul aria-describedby="option-drag-label" aria-labelledby="label-102"
-                                aria-multiselectable="true" class="slds-listbox slds-listbox_vertical" role="listbox">
-                                <li role="presentation" class="slds-listbox__item">
-                                    <div class="slds-listbox__option slds-listbox__option_plain slds-media slds-media_small slds-media_inline"
-                                        aria-selected="false" draggable="true" role="option" tabindex="0">
-                                        <span class="slds-media__body">
-                                            <span class="slds-truncate" title="Chinese">Chinese</span>
-                                        </span>
-                                    </div>
-                                </li>
-                                <li role="presentation" class="slds-listbox__item">
-                                    <div class="slds-listbox__option slds-listbox__option_plain slds-media slds-media_small slds-media_inline"
-                                        aria-selected="false" draggable="true" role="option" tabindex="-1">
-                                        <span class="slds-media__body">
-                                            <span class="slds-truncate" title="English">English</span>
-                                        </span>
-                                    </div>
-                                </li>
-                            </ul>
+                        <div class="slds-card__body slds-card__body_inner slds-line-clamp_medium">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi illo ut labore vel esse rem
+                            recusandae minima quas voluptas minus, nemo deleniti, impedit quos pariatur hic sapiente
+                            laborum sed aperiam?
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque magnam voluptatibus
+                            autem, nam perspiciatis earum repellat excepturi velit modi veritatis qui a eos numquam
+                            laborum corrupti odio eligendi, fuga veniam.
                         </div>
-                    </div>
+                    </article>
+                </div>
+                <div class="
+                slds-col
+                slds-p-around_medium
+                slds-large-size_3-of-12
+                slds-medium-size_6-of-12
+                slds-small-size_12-of12">
+                    <article class="slds-card">
+                        <div class="slds-grid slds-einstein-header slds-card__header">
+                            <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                                <div class="
+                                    slds-grid 
+                                    slds-grid_vertical-align-center 
+                                    slds-size_3-of-4 
+                                    slds-medium-size_2-of-3">
+                                    <div class="slds-media__body">
+                                        <h2 class="slds-truncate" title="Product 2">
+                                            <a href="#" class="slds-card__header-link" title="Product 2">
+                                                <span class="slds-text-heading_small">Product 2</span>
+                                            </a>
+                                        </h2>
+                                    </div>
+                                </div>
+                                <div class="slds-size_1-of-4 slds-medium-size_1-of-3">
+                                </div>
+                            </header>
+                        </div>
+                        <div class="slds-card__body slds-card__body_inner slds-line-clamp_medium">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi illo ut labore vel esse rem
+                            recusandae minima quas voluptas minus, nemo deleniti, impedit quos pariatur hic sapiente
+                            laborum sed aperiam?
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque magnam voluptatibus
+                            autem, nam perspiciatis earum repellat excepturi velit modi veritatis qui a eos numquam
+                            laborum corrupti odio eligendi, fuga veniam.
+                        </div>
+                    </article>
+                </div>
+                <div class="
+                slds-col
+                slds-p-around_medium
+                slds-large-size_3-of-12
+                slds-medium-size_6-of-12
+                slds-small-size_12-of12">
+                    <article class="slds-card">
+                        <div class="slds-grid slds-einstein-header slds-card__header">
+                            <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                                <div class="
+                                    slds-grid 
+                                    slds-grid_vertical-align-center 
+                                    slds-size_3-of-4 
+                                    slds-medium-size_2-of-3">
+                                    <div class="slds-media__body">
+                                        <h2 class="slds-truncate" title="Product 3">
+                                            <a href="#" class="slds-card__header-link" title="Product 3">
+                                                <span class="slds-text-heading_small">Product 3</span>
+                                            </a>
+                                        </h2>
+                                    </div>
+                                </div>
+                                <div class="slds-size_1-of-4 slds-medium-size_1-of-3">
+                                </div>
+                            </header>
+                        </div>
+                        <div class="slds-card__body slds-card__body_inner slds-line-clamp_medium">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi illo ut labore vel esse rem
+                            recusandae minima quas voluptas minus, nemo deleniti, impedit quos pariatur hic sapiente
+                            laborum sed aperiam?
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque magnam voluptatibus
+                            autem, nam perspiciatis earum repellat excepturi velit modi veritatis qui a eos numquam
+                            laborum corrupti odio eligendi, fuga veniam.
+                        </div>
+                    </article>
+                </div>
+                <div class="
+                slds-col
+                slds-p-around_medium
+                slds-large-size_3-of-12
+                slds-medium-size_6-of-12
+                slds-small-size_12-of12">
+                    <article class="slds-card">
+                        <div class="slds-grid slds-einstein-header slds-card__header">
+                            <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                                <div class="
+                                    slds-grid 
+                                    slds-grid_vertical-align-center 
+                                    slds-size_3-of-4 
+                                    slds-medium-size_2-of-3">
+                                    <div class="slds-media__body">
+                                        <h2 class="slds-truncate" title="Product 4">
+                                            <a href="#" class="slds-card__header-link" title="Product 4">
+                                                <span class="slds-text-heading_small">Product 4</span>
+                                            </a>
+                                        </h2>
+                                    </div>
+                                </div>
+                                <div class="slds-size_1-of-4 slds-medium-size_1-of-3">
+                                </div>
+                            </header>
+                        </div>
+                        <div class="slds-card__body slds-card__body_inner slds-line-clamp_medium">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi illo ut labore vel esse rem
+                            recusandae minima quas voluptas minus, nemo deleniti, impedit quos pariatur hic sapiente
+                            laborum sed aperiam?
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque magnam voluptatibus
+                            autem, nam perspiciatis earum repellat excepturi velit modi veritatis qui a eos numquam
+                            laborum corrupti odio eligendi, fuga veniam.
+                        </div>
+                    </article>
+                </div>
+                <div class="
+                slds-col
+                slds-p-around_medium
+                slds-large-size_3-of-12
+                slds-medium-size_6-of-12
+                slds-small-size_12-of12">
+                    <article class="slds-card">
+                        <div class="slds-grid slds-einstein-header slds-card__header">
+                            <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                                <div class="
+                                    slds-grid 
+                                    slds-grid_vertical-align-center 
+                                    slds-size_3-of-4 
+                                    slds-medium-size_2-of-3">
+                                    <div class="slds-media__body">
+                                        <h2 class="slds-truncate" title="Product 5">
+                                            <a href="#" class="slds-card__header-link" title="Product 5">
+                                                <span class="slds-text-heading_small">Product 5</span>
+                                            </a>
+                                        </h2>
+                                    </div>
+                                </div>
+                                <div class="slds-size_1-of-4 slds-medium-size_1-of-3">
+                                </div>
+                            </header>
+                        </div>
+                        <div class="slds-card__body slds-card__body_inner slds-line-clamp_medium">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi illo ut labore vel esse rem
+                            recusandae minima quas voluptas minus, nemo deleniti, impedit quos pariatur hic sapiente
+                            laborum sed aperiam?
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque magnam voluptatibus
+                            autem, nam perspiciatis earum repellat excepturi velit modi veritatis qui a eos numquam
+                            laborum corrupti odio eligendi, fuga veniam.
+                        </div>
+                    </article>
+                </div>
+                <div class="
+                slds-col
+                slds-p-around_medium
+                slds-large-size_3-of-12
+                slds-medium-size_6-of-12
+                slds-small-size_12-of12">
+                    <article class="slds-card">
+                        <div class="slds-grid slds-einstein-header slds-card__header">
+                            <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                                <div class="
+                                    slds-grid 
+                                    slds-grid_vertical-align-center 
+                                    slds-size_3-of-4 
+                                    slds-medium-size_2-of-3">
+                                    <div class="slds-media__body">
+                                        <h2 class="slds-truncate" title="Product 6">
+                                            <a href="#" class="slds-card__header-link" title="Product 6">
+                                                <span class="slds-text-heading_small">Product 6</span>
+                                            </a>
+                                        </h2>
+                                    </div>
+                                </div>
+                                <div class="slds-size_1-of-4 slds-medium-size_1-of-3">
+                                </div>
+                            </header>
+                        </div>
+                        <div class="slds-card__body slds-card__body_inner slds-line-clamp_medium">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi illo ut labore vel esse rem
+                            recusandae minima quas voluptas minus, nemo deleniti, impedit quos pariatur hic sapiente
+                            laborum sed aperiam?
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque magnam voluptatibus
+                            autem, nam perspiciatis earum repellat excepturi velit modi veritatis qui a eos numquam
+                            laborum corrupti odio eligendi, fuga veniam.
+                        </div>
+                    </article>
+                </div>
+            </div>
+            <!-- Contact Us -->
+            <div class="slds-col slds-is-relative">
+                <div class="slds-m-vertical_medium slds-text-align_center">
+                    <h1 style="font-size:2rem;" id="contact-us">Contact Us</h1>
+                </div>
+            </div>
+            <!-- Google Maps container -->
+            <div class="slds-map_container">
+                <div class="slds-map">
+                    <iframe id="GoogleMapID" title="Google Maps iframe" 
+                    src="https://sfdc-map.surge.sh/"></iframe>
                 </div>
             </div>
         </div>
     </div>
-
-
-
-    <!-- Creates a grid of 12 units wide in each row (if not specified, will automatically space items to 12 total units in each row equally) -->
-    <!-- slds-wrap allows objects to move to the next row when the window expands and shrinks -->
-    <div class="slds-grid slds-wrap slds-grid_align-spread">
-        <!-- Columns with margins and padding -->
-        <!-- slds-size_X-of-12 determines how many units the object will use, X being 1 to 12 -->
-        <!-- slds-large, medium, small determines how many units when the window is large, medium, or small -->
-        <div class="slds-col 
-                    slds-m-around_xx-small 
-                    slds-p-around_small 
-                    slds-large-size_1-of-12 
-                    slds-medium-size_8-of-12 
-                    slds-small-size_12-of-12" style="height: 4rem; background: palegreen">First Item
-        </div>
-        <div class="slds-col 
-                    slds-m-around_xx-small 
-                    slds-p-around_small                    
-                    slds-large-size_1-of-12 
-                    slds-medium-size_8-of-12 
-                    slds-small-size_12-of-12" style="height: 4rem; background: lightblue">Second Item
-        </div>
-        <div class="slds-col 
-                    slds-m-around_xx-small 
-                    slds-p-around_small                    
-                    slds-large-size_1-of-12 
-                    slds-medium-size_8-of-12 
-                    slds-small-size_12-of-12" style="height: 4rem; background: palegreen">Third Item
-        </div>
-        <div class="slds-col 
-                    slds-m-around_xx-small 
-                    slds-p-around_small
-                    slds-large-size_1-of-12 
-                    slds-medium-size_8-of-12 
-                    slds-small-size_12-of-12" style="height: 4rem; background: red">Fourth Item
-        </div>
-        <div class="slds-col 
-                    slds-m-around_xx-small 
-                    slds-p-around_small
-                    slds-large-size_1-of-12 
-                    slds-medium-size_8-of-12 
-                    slds-small-size_12-of-12" style="height: 4rem; background: palegreen">Fifth Item
-        </div>
-        <div class="slds-col 
-                    slds-m-around_xx-small 
-                    slds-p-around_small
-                    slds-large-size_1-of-12 
-                    slds-medium-size_8-of-12 
-                    slds-small-size_12-of-12" style="height: 4rem; background: lightblue">Sixth Item
-        </div>
-        <div class="slds-col 
-                    slds-m-around_xx-small 
-                    slds-p-around_small 
-                    slds-large-size_4-of-12
-                    slds-large-size_1-of-12 
-                    slds-medium-size_8-of-12 
-                    slds-small-size_12-of-12" style="height: 4rem; background: palegreen">Seventh Item
-        </div>
-        <div class="slds-col 
-                    slds-m-around_xx-small 
-                    slds-p-around_small 
-                    slds-large-size_1-of-12 
-                    slds-medium-size_8-of-12 
-                    slds-small-size_12-of-12" style="height: 4rem; background: lightyellow">Eighth Item
-        </div>
-        <div class="slds-col 
-                    slds-m-around_xx-small 
-                    slds-p-around_small " style="height: 4rem; background: palegreen">First Item
-        </div>
-        <div class="slds-col 
-                    slds-m-around_xx-small 
-                    slds-p-around_small" style="height: 4rem; background: palegreen">First Item
-        </div>
-        <div class="slds-col 
-                    slds-m-around_xx-small 
-                    slds-p-around_small" style="height: 4rem; background: palegreen">First Item
-        </div>
-        <div class="slds-col 
-                    slds-m-around_xx-small 
-                    slds-p-around_small" style="height: 4rem; background: palegreen">First Item
-        </div>
-    </div>
-
-    <div class="slds-grid slds-wrap slds-grid_align-space">
-        <div class="slds-col 
-                    slds-m-around_xx-small 
-                    slds-p-around_small" style="height: 4rem; background: palegreen">First Item
-        </div>
-        <div class="slds-col 
-                    slds-m-around_xx-small 
-                    slds-p-around_small" style="height: 4rem; background: palegreen">First Item
-        </div>
-    </div>
-
-    <div class="slds-grid slds-wrap slds-grid_align-spread">
-        <div class="slds-row 
-                    slds-m-around_xx-small 
-                    slds-p-around_small" style="height: 4rem; background: teal">First Item
-        </div>
-        <div class="slds-row 
-                    slds-m-around_xx-small 
-                    slds-p-around_small" style="height: 4rem; background: teal">First Item
-        </div>
-    </div>
-
-    <div class="slds-grid_vertical slds-wrap slds-grid_align-spread">
-        <div class="slds-row 
-                    slds-m-around_xx-small 
-                    slds-p-around_small" style="height: 4rem; background: crimson">First Item
-        </div>
-        <div class="slds-row 
-                    slds-m-around_xx-small 
-                    slds-p-around_small" style="height: 4rem; background: crimson">First Item
-        </div>
-    </div>
-
-    <div class="slds-m-around_medium slds-p-around_medium" style="height:8rem; background: orange;">This is a div</div>
-    <div class="slds-m-around_medium slds-p-around_medium" style="height:8rem; background: orange;">This is another div</div>
-    <div class="slds-m-around_medium slds-p-around_medium" style="height:8rem; background: orange;">This is the third div</div>
-
 </body>
-
 </html>
