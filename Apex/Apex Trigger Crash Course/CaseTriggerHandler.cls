@@ -2,7 +2,6 @@ public with sharing class CaseTriggerHandler {
 
     // public static variables do not keep old values between methods
     public static Set<Id> parentCaseIdToUpdate;
-    public static List<Case> parentCasesToUpdate;
 
     public static void afterInsertHandler(List<Case> cases) {
         parentCaseIdToUpdate = new List<Case>();
