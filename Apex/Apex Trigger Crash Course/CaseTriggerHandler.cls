@@ -11,26 +11,31 @@ public with sharing class CaseTriggerHandler {
                 parentCaseIdsToUpdate.add(c.Parent_Case__c);
             }
         }
-        CaseTriggerHelper.updateTotalResolutionDaysOnParentCases(parentCaseIdsToUpdate);
+        CaseTriggerHelper.updateTotalResolutionDaysOnParentCasesUsingInnerQuery(parentCaseIdsToUpdate);
     }    
 
     public static void afterUpdateHandler(List<Case> cases, Map<Id, Case> oldCasesMap) {
+        parentCaseIdsToUpdate = new Set<Id>();
         for (Case c : cases) {
             Case oldCase = oldCasesMap.get(c.Id);
             // Update Resolution_Days__c if it has changed from previous value
             if (c.Resolution_Days__c != oldCase.Resolution_Days__c) {
-                if (c.Resolution_Days__c != null) {
+                if (c.Parent_Case__c != null) {
                 	parentCaseIdsToUpdate.add(c.Parent_Case__c);
                 }
             }
 
             // Adds the old case to the set if the parent case has changed
             if (c.Parent_Case__c != oldCase.Parent_Case__c) {
-                parentCaseIdsToUpdate.add(c.Parent_Case__c);
-                parentCaseIdsToUpdate.add(oldCase.Parent_Case__c);
+                if (c.Parent_Case__c != null) {
+                    parentCaseIdsToUpdate.add(c.Parent_Case__c);
+                }
+                if (oldCase.Parent_Case__c != null) {
+                    parentCaseIdsToUpdate.add(oldCase.Parent_Case__c);
+                }
             }
         }
-        CaseTriggerHelper.updateTotalResolutionDaysOnParentCases(parentCaseIdsToUpdate);
+        CaseTriggerHelper.updateTotalResolutionDaysOnParentCasesUsingInnerQuery(parentCaseIdsToUpdate);
     }    
 
     public static void afterDeleteHandler(List<Case> cases) {
@@ -39,7 +44,7 @@ public with sharing class CaseTriggerHandler {
                 parentCaseIdsToUpdate.add(c.Parent_Case__c);
             }
         }
-        CaseTriggerHelper.updateTotalResolutionDaysOnParentCases(parentCaseIdsToUpdate);
+        CaseTriggerHelper.updateTotalResolutionDaysOnParentCasesUsingInnerQuery(parentCaseIdsToUpdate);
     }    
 
     public static void afterUndeleteHandler(List<Case> cases) {
@@ -48,6 +53,6 @@ public with sharing class CaseTriggerHandler {
                 parentCaseIdsToUpdate.add(c.Parent_Case__c);
             }
         }
-        CaseTriggerHelper.updateTotalResolutionDaysOnParentCases(parentCaseIdsToUpdate);
+        CaseTriggerHelper.updateTotalResolutionDaysOnParentCasesUsingInnerQuery(parentCaseIdsToUpdate);
     }
 }
