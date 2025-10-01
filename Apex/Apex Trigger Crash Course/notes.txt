@@ -1,0 +1,29 @@
+What is an Apex Trigger?
+
+Apex triggers are pieces of code that execute auotmatically in response to certain events on Salesforce objects
+
+They are similar to database triggers where you want to perform certain actions on data manipulation events
+
+Apex triggers also allows you to perform custom actions before or after changes to Salesforce records
+
+The code block of a trigger cannot contain the static keyowrd
+
+You do not have to manually commit any database changes made by a trigger
+
+If the Apex trigger completes successfully, any database changes are automatically committed,
+if the Apex trigger does not complete successfully, any changes made to the database are rolled back
+
+Apex trigger types:
+
+- Before trigger
+- After trigger
+
+Apex trigger events:
+
+- before insert
+- after insert
+- before update
+- after update
+- before delete
+- after delete
+- after undelete
