@@ -29,4 +29,33 @@ public with sharing class CaseTriggerHelper {
             }
         }
     }
+    public static void updateTotalResolutionDaysOnParentCasesUsingInnerQuery(Set<Id> parentCaseIdsToUpdate) {
+        parentCasesToUpdate = new List<Case>();
+
+        // Inner query to get Resolution_Days__c for all child cases
+        // Outer query to get parent cases
+        List<Case> allCases = [
+            SELECT Id, Total_Resolution_Days__c, 
+                (SELECT Id, Resolution_Days__c 
+                FROM Cases) 
+            FROM Case
+            WHERE Id = :parentCaseIdsToUpdate];
+
+        // Loops through parent cases and child cases to calculate total days
+        for (Case parentCase : allCases) {
+            Decimal totalDays = 0;
+
+            for (Case childCase : parentCase.Cases) {
+                totalDays += childCase.Resolution_Days__c;
+            }
+            // Adds parent case to the list
+            parentCasesToUpdate.add(new Case(
+                Id=parentCase.Id,
+                Total_Resolution_Days__c=totalDays));
+        }
+        // Updates parent cases if there are any
+        if (parentCasesToUpdate.size() > 0) {
+            update parentCasesToUpdate;
+        }
+    }
 }
