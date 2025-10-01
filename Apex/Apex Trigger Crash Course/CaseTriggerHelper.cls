@@ -15,7 +15,7 @@ public with sharing class CaseTriggerHelper {
                 FROM Case 
                 GROUP BY Parent_Case__c];
 
-            // Loops through sum of all cases and add parent cases to the set
+            // Loops through sum of all cases and add parent cases to the list
             for (AggregateResult ar : casesWithResolutionDays)  {
                 Id parentId = (Id)ar.get('Parent_Case__c');
                 Decimal totalDays = (Decimal)ar.get('totalDays');
