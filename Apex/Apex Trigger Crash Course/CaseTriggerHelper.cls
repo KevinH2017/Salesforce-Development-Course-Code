@@ -1,8 +1,13 @@
 public with sharing class CaseTriggerHelper {
+
+    // public static variables do not keep old values between methods
+    public static List<Case> parentCasesToUpdate;
+
     public static void updateTotalResolutionDaysOnParentCases(Set<Id> parentCaseIdToUpdate) {
+        parentCaseIdToUpdate = new List<Case>();
         // Only execute if there are parent cases to update
         if (parentCaseIdToUpdate.size() > 0) {
-            // Gets sum of Resolution_Days__c for all child cases
+            // Queries sum of Resolution_Days__c for all child cases, grouped by Parent_Case__c
             AggregateResult[] casesWithResolutionDays = [
                 SELECT Parent_Case__c,
                     SUM(Resolution_Days__c)totalDays 
