@@ -37,7 +37,7 @@ public with sharing class CaseTriggerHelper {
         List<Case> allCases = [
             SELECT Id, Total_Resolution_Days__c, 
                 (SELECT Id, Resolution_Days__c 
-                FROM Cases) 
+                FROM Cases__r) 
             FROM Case
             WHERE Id = :parentCaseIdsToUpdate];
 
@@ -45,7 +45,7 @@ public with sharing class CaseTriggerHelper {
         for (Case parentCase : allCases) {
             Decimal totalDays = 0;
 
-            for (Case childCase : parentCase.Cases) {
+            for (Case childCase : parentCase.Cases__r) {
                 totalDays += childCase.Resolution_Days__c;
             }
             // Adds parent case to the list
